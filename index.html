@@ -66,21 +66,21 @@
             font-style: italic;
         }
         
+        /* FIX: Using column-count for proper text flow like a journal */
         .two-column {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
+            column-count: 2;
+            column-gap: 2.5rem;
             text-align: justify;
         }
 
-        @media (min-width: 768px) {
+        @media (max-width: 768px) {
             .two-column {
-                grid-template-columns: repeat(2, 1fr);
+                column-count: 1;
             }
         }
         
         .full-width {
-            grid-column: 1 / -1;
+            column-span: all;
         }
         
         .section-title {
@@ -88,6 +88,7 @@
             margin: 3rem 0 1.5rem;
             border-bottom: 2px solid var(--primary-color);
             padding-bottom: 0.5rem;
+            column-span: all; /* Ensure section titles always span full width */
         }
         
         .subsection-title {
@@ -95,6 +96,8 @@
             margin: 1.5rem 0 1rem;
             font-weight: 600;
             color: #343a40;
+            break-after: avoid; /* Prevent column break after a title */
+            break-inside: avoid; /* Prevent title from breaking across columns */
         }
         
         .figure {
@@ -104,6 +107,7 @@
             border-radius: 0.5rem;
             border: 1px solid var(--light-gray);
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            break-inside: avoid; /* Prevent figures from splitting */
         }
         
         .figure-caption {
@@ -195,7 +199,7 @@
 
         <main>
             <section id="abstract">
-                <h2 class="section-title full-width">Abstract</h2>
+                <h2 class="section-title">Abstract</h2>
                 <div class="bg-blue-50 p-6 rounded-lg border border-blue-200 text-justify">
                     <p class="mb-3">
                         Group A Streptococcus (GAS) infections, caused by *Streptococcus pyogenes*, are responsible for a range of illnesses, from mild conditions like strep throat to severe, life-threatening diseases such as necrotizing fasciitis and streptococcal toxic shock syndrome (STSS), which has a mortality rate exceeding 35%. The target candidates for this vaccine design are the M protein and FbaA protein. Currently, no licensed vaccine is available. The advent of bioinformatics and immunoinformatics has facilitated vaccine development. Using online web servers like IEDB, VaxiJen, and ToxinPred, alongside databases such as NCBI and UniProt, we designed a chimeric vaccine. Selected epitopes were linked to construct a vaccine candidate, providing a promising path for viral vaccination development.
@@ -216,34 +220,34 @@
             </section>
 
             <section id="methods">
-                <h2 class="section-title full-width">2. Materials and Methods</h2>
+                <h2 class="section-title">2. Materials and Methods</h2>
                 <div class="two-column">
-                    <h3 class="subsection-title full-width">2.1. Protein sequences identification and retrieval</h3>
+                    <h3 class="subsection-title">2.1. Protein sequences identification and retrieval</h3>
                     <p class="mb-4">
                         The National Center for Biotechnology Information's (NCBI) database was used to identify Group A Streptococcus and select the genome and their target proteins (FbaA & M proteins). The information was obtained by literature review. Then, in FASTA format, the target protein sequences of the chosen strain were retrieved from the UniProt database (IDs: P12379.1, Q93R11).
                     </p>
 
-                    <h3 class="subsection-title full-width">2.2. Epitope Prediction (B-cell and T-cell)</h3>
+                    <h3 class="subsection-title">2.2. Epitope Prediction (B-cell and T-cell)</h3>
                     <p class="mb-4">
                         B-cell epitopes, which are recognized by B-cell receptors and antibodies, were predicted to stimulate humoral immunity. T-cell epitopes, presented by MHC class I and II molecules, were predicted using the Immune Epitope Database (IEDB). CTL epitopes (MHC-I binding) were screened for their ability to activate CD8+ T-cells, while HTL epitopes (MHC-II binding) were screened for their role in activating CD4+ helper T-cells, which are crucial for a coordinated adaptive immune response.
                     </p>
 
-                    <h3 class="subsection-title full-width">2.3. Immunogenicity Analysis</h3>
+                    <h3 class="subsection-title">2.3. Immunogenicity Analysis</h3>
                      <p class="mb-4">
                         Predicted CTL and HTL epitopes were further shortlisted by applying multiple immunological filters. Allergenicity was predicted using AllerTOP2.0. Antigenicity was determined using the VaxiJen v2.0 server with a threshold above 0.4. Toxicity was evaluated using the ToxinPred server. The IFNepitope webserver was used to predict epitopes that can induce interferon-gamma, and IFN-γ positive epitopes were selected.
                     </p>
 
-                    <h3 class="subsection-title full-width">2.4. Vaccine Construction</h3>
+                    <h3 class="subsection-title">2.4. Vaccine Construction</h3>
                     <p class="mb-4">
                         A multi-epitope vaccine was designed using all the prioritized T-cell epitopes connected by two types of linkers, AAY and GPGPG. The AAY linker was used to join CTL epitopes while the GPGPG linker was used to connect HTL epitopes. A 50S ribosome adjuvant was added at the N-terminal, accompanied by an EAAAK linker to trigger a vigorous immune response and improve epitope presentation.
                     </p>
 
-                    <h3 class="subsection-title full-width">2.5. Physicochemical, Structural, and Docking Analysis</h3>
+                    <h3 class="subsection-title">2.5. Physicochemical, Structural, and Docking Analysis</h3>
                     <p class="mb-4">
                         Physicochemical properties were investigated using the ProtParam tool. The SOLUPROT server predicted solubility. The secondary structure was determined using the PSIPRED online server. The 3D structure was predicted using the Robetta server and validated using MOLPROBITY. To evaluate binding affinity, the MEV was docked with TLR4, MHC-I, and MHC-II using the HADDOCK v.2.2 online web server.
                     </p>
                     
-                    <h3 class="subsection-title full-width">2.6. In Silico Immune Simulation and Cloning</h3>
+                    <h3 class="subsection-title">2.6. In Silico Immune Simulation and Cloning</h3>
                     <p class="mb-4">
                         An in silico immune simulation was performed using the C-ImmSim server to validate the immunological response of the constructed MEV. For expression, the Java Codon Adaptation Tool (JCAT) server was used for MEV codon optimization for the *E. coli* K12 system. Finally, the SnapGene tool was used to clone the optimized sequence into the expression vector pET28a(+).
                     </p>
@@ -252,80 +256,79 @@
             
             <section id="results">
                 <h2 class="section-title full-width">3. Results</h2>
-                <div class="two-column">
-                    <h3 class="subsection-title full-width">3.1. Immunogenicity Screening of Epitopes</h3>
-                    <p class="mb-4">
-                        The target proteins were submitted to the IEDB server, which predicted numerous CTL and HTL epitopes. These were assessed for their immunological properties. Collectively, 13 MHC-I and 12 MHC-II epitopes were selected for the vaccine construct based on their high antigenicity, non-toxicity, non-allergenicity, and ability to induce interferon-gamma.
-                    </p>
+                
+                <h3 class="subsection-title full-width">3.1. Immunogenicity Screening of Epitopes</h3>
+                <p class="mb-4 text-justify">
+                    The target proteins were submitted to the IEDB server, which predicted numerous CTL and HTL epitopes. These were assessed for their immunological properties. Collectively, 13 MHC-I and 12 MHC-II epitopes were selected for the vaccine construct based on their high antigenicity, non-toxicity, non-allergenicity, and ability to induce interferon-gamma.
+                </p>
 
-                    <div class="figure full-width">
-                        <h4 class="table-number">Table 1. Selected MHC-I and MHC-II Epitopes</h4>
-                        <div class="overflow-x-auto">
-                            <table class="journal-table">
-                                <thead>
-                                    <tr><th>Type</th><th>Sequence</th><th>Antigenicity</th><th>Allergenicity</th><th>Toxicity</th><th>Vaxijen Score</th></tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td>MHC-I</td><td>ESRLSEAQK</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>0.7860</td></tr>
-                                    <tr><td>MHC-I</td><td>ETPSPSTPA</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>0.7126</td></tr>
-                                    <tr><td>MHC-I</td><td>GEKAQPLFI</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>0.8372</td></tr>
-                                    <tr><td>MHC-I</td><td>TQASASDSM</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>1.0687</td></tr>
-                                    <tr><td>MHC-I</td><td>LSRQVRAHE</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>0.6496</td></tr>
-                                    <tr><td>MHC-I</td><td>ELAKLRAGK</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>0.5517</td></tr>
-                                    <tr><td>MHC-I</td><td>TGTASVAVAL</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>1.2002</td></tr>
-                                    <tr><td>MHC-II</td><td>AAPSQPAESEESSVA</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>0.9727</td></tr>
-                                    <tr><td>MHC-II</td><td>ESEEPSVAASSEETP</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>1.0163</td></tr>
-                                    <tr><td>MHC-II</td><td>ESRLSEAQKETYKQK</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>1.1374</td></tr>
-                                    <tr><td>MHC-II</td><td>EGAMNFSTADSAKIK</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>1.0145</td></tr>
-                                    <tr><td>MHC-II</td><td>GAMNFSTADSAKIKT</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>0.9708</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
+                <div class="figure full-width">
+                    <h4 class="table-number">Table 1. Selected MHC-I and MHC-II Epitopes</h4>
+                    <div class="overflow-x-auto">
+                        <table class="journal-table">
+                            <thead>
+                                <tr><th>Type</th><th>Sequence</th><th>Antigenicity</th><th>Allergenicity</th><th>Toxicity</th><th>Vaxijen Score</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>MHC-I</td><td>ESRLSEAQK</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>0.7860</td></tr>
+                                <tr><td>MHC-I</td><td>ETPSPSTPA</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>0.7126</td></tr>
+                                <tr><td>MHC-I</td><td>GEKAQPLFI</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>0.8372</td></tr>
+                                <tr><td>MHC-I</td><td>TQASASDSM</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>1.0687</td></tr>
+                                <tr><td>MHC-I</td><td>LSRQVRAHE</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>0.6496</td></tr>
+                                <tr><td>MHC-I</td><td>ELAKLRAGK</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>0.5517</td></tr>
+                                <tr><td>MHC-I</td><td>TGTASVAVAL</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>1.2002</td></tr>
+                                <tr><td>MHC-II</td><td>AAPSQPAESEESSVA</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>0.9727</td></tr>
+                                <tr><td>MHC-II</td><td>ESEEPSVAASSEETP</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>1.0163</td></tr>
+                                <tr><td>MHC-II</td><td>ESRLSEAQKETYKQK</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>1.1374</td></tr>
+                                <tr><td>MHC-II</td><td>EGAMNFSTADSAKIK</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>1.0145</td></tr>
+                                <tr><td>MHC-II</td><td>GAMNFSTADSAKIKT</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>0.9708</td></tr>
+                            </tbody>
+                        </table>
                     </div>
+                </div>
 
-                    <h3 class="subsection-title full-width">3.2. Vaccine Construct and Physicochemical Properties</h3>
-                    <p class="mb-4">
-                        The final multi-epitope vaccine construct is a 601 amino acid chimeric protein. The physicochemical analysis predicted a molecular weight of 61.6 kDa and a theoretical pI of 6.08. The instability index was calculated to be 31.72, classifying the protein as stable. The aliphatic index of 62.33 suggests good thermostability, and the negative GRAVY score of -0.428 indicates that the protein is hydrophilic and likely to be soluble (solubility score of 0.884).
-                    </p>
-                    <div class="figure full-width">
-                        <img src="images/vaccine-construct.png" alt="Vaccine Construct Diagram" class="rounded-lg w-full h-auto object-contain border">
-                        <p class="figure-caption"><span class="figure-number">Figure 1.</span> Schematic of the final multi-epitope vaccine construct.</p>
-                    </div>
+                <h3 class="subsection-title full-width">3.2. Vaccine Construct and Physicochemical Properties</h3>
+                <p class="mb-4 text-justify">
+                    The final multi-epitope vaccine construct is a 601 amino acid chimeric protein. The physicochemical analysis predicted a molecular weight of 61.6 kDa and a theoretical pI of 6.08. The instability index was calculated to be 31.72, classifying the protein as stable. The aliphatic index of 62.33 suggests good thermostability, and the negative GRAVY score of -0.428 indicates that the protein is hydrophilic and likely to be soluble (solubility score of 0.884).
+                </p>
+                <div class="figure full-width">
+                    <img src="images/vaccine-construct.png" alt="Vaccine Construct Diagram" class="rounded-lg w-full h-auto object-contain border">
+                    <p class="figure-caption"><span class="figure-number">Figure 1.</span> Schematic of the final multi-epitope vaccine construct.</p>
+                </div>
 
-                    <h3 class="subsection-title full-width">3.3. Structural Validation</h3>
-                    <p class="mb-4">
-                        The 3D model of the vaccine was validated using MOLPROBITY. The Ramachandran plot analysis showed that 94.16% of the amino acid residues were in the most favored regions, indicating a high-quality, stereochemically favorable protein structure.
-                    </p>
-                    <div class="figure full-width">
-                        <img src="images/3d-structure-validation.png" alt="3D Structure and Ramachandran Plot" class="rounded-lg w-full h-auto object-contain border">
-                        <p class="figure-caption"><span class="figure-number">Figure 2.</span> The predicted tertiary structure of the vaccine construct (right) and its corresponding Ramachandran plot (left).</p>
-                    </div>
+                <h3 class="subsection-title full-width">3.3. Structural Validation</h3>
+                <p class="mb-4 text-justify">
+                    The 3D model of the vaccine was validated using MOLPROBITY. The Ramachandran plot analysis showed that 94.16% of the amino acid residues were in the most favored regions, indicating a high-quality, stereochemically favorable protein structure.
+                </p>
+                <div class="figure full-width">
+                    <img src="images/3d-structure-validation.png" alt="3D Structure and Ramachandran Plot" class="rounded-lg w-full h-auto object-contain border">
+                    <p class="figure-caption"><span class="figure-number">Figure 2.</span> The predicted tertiary structure of the vaccine construct (right) and its corresponding Ramachandran plot (left).</p>
+                </div>
 
-                    <h3 class="subsection-title full-width">3.4. Molecular Docking and Interactions</h3>
-                    <p class="mb-4">
-                        Docking analysis showed strong interactions between the MEV and immune receptors. For TLR4, 38 residues of the vaccine interacted with 40 residues of the receptor, forming 267 non-bonded contacts and 15 hydrogen bonds. Similar strong interactions were observed for MHC-I and MHC-II.
-                    </p>
-                    <div class="figure full-width">
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                            <img src="images/docking-tlr4.png" alt="Docked with TLR-4" class="rounded-lg w-full h-auto object-contain border">
-                            <img src="images/docking-mhc1.png" alt="Docked with MHC-I" class="rounded-lg w-full h-auto object-contain border">
-                            <img src="images/docking-mhc2.png" alt="Docked with MHC-II" class="rounded-lg w-full h-auto object-contain border">
-                        </div>
-                        <p class="figure-caption"><span class="figure-number">Figure 3.</span> Molecular docking complexes of the vaccine construct with immune receptors.</p>
+                <h3 class="subsection-title full-width">3.4. Molecular Docking and Interactions</h3>
+                <p class="mb-4 text-justify">
+                    Docking analysis showed strong interactions between the MEV and immune receptors. For TLR4, 38 residues of the vaccine interacted with 40 residues of the receptor, forming 267 non-bonded contacts and 15 hydrogen bonds. Similar strong interactions were observed for MHC-I and MHC-II.
+                </p>
+                <div class="figure full-width">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <img src="images/docking-tlr4.png" alt="Docked with TLR-4" class="rounded-lg w-full h-auto object-contain border">
+                        <img src="images/docking-mhc1.png" alt="Docked with MHC-I" class="rounded-lg w-full h-auto object-contain border">
+                        <img src="images/docking-mhc2.png" alt="Docked with MHC-II" class="rounded-lg w-full h-auto object-contain border">
                     </div>
+                    <p class="figure-caption"><span class="figure-number">Figure 3.</span> Molecular docking complexes of the vaccine construct with immune receptors.</p>
+                </div>
 
-                    <h3 class="subsection-title full-width">3.5. Immune Simulation and Cloning</h3>
-                    <p class="mb-4">
-                        The C-ImmSim server predicted a robust immune response, with a steady rise in immunoglobulins (IgG1+IgM, IgG+IgM) and activation of B-cells, helper T-cells, and cytotoxic T-cells. This reflects the vaccine's capacity to create a high secondary immune response and healthy immune memory. The optimized MEV construct contained 2061 nucleotides with an ideal GC content of 51.30% and a CAI value of 1.0, and was successfully cloned into the pET28a(+) vector.
-                    </p>
-                    <div class="figure full-width">
-                        <img src="images/immune-simulation.png" alt="Immune Simulation Results" class="rounded-lg w-full h-auto object-contain border">
-                        <p class="figure-caption"><span class="figure-number">Figure 4.</span> Predicted immune response from the C-ImmSim server.</p>
-                    </div>
-                     <div class="figure full-width">
-                        <img src="images/in-silico-cloning.png" alt="Plasmid Map" class="rounded-lg w-full h-auto object-contain border">
-                        <p class="figure-caption"><span class="figure-number">Figure 5.</span> Recombinant plasmid map showing the optimized vaccine gene cloned into the pET28a(+) vector.</p>
-                    </div>
+                <h3 class="subsection-title full-width">3.5. Immune Simulation and Cloning</h3>
+                <p class="mb-4 text-justify">
+                    The C-ImmSim server predicted a robust immune response, with a steady rise in immunoglobulins (IgG1+IgM, IgG+IgM) and activation of B-cells, helper T-cells, and cytotoxic T-cells. This reflects the vaccine's capacity to create a high secondary immune response and healthy immune memory. The optimized MEV construct contained 2061 nucleotides with an ideal GC content of 51.30% and a CAI value of 1.0, and was successfully cloned into the pET28a(+) vector.
+                </p>
+                <div class="figure full-width">
+                    <img src="images/immune-simulation.png" alt="Immune Simulation Results" class="rounded-lg w-full h-auto object-contain border">
+                    <p class="figure-caption"><span class="figure-number">Figure 4.</span> Predicted immune response from the C-ImmSim server.</p>
+                </div>
+                 <div class="figure full-width">
+                    <img src="images/in-silico-cloning.png" alt="Plasmid Map" class="rounded-lg w-full h-auto object-contain border">
+                    <p class="figure-caption"><span class="figure-number">Figure 5.</span> Recombinant plasmid map showing the optimized vaccine gene cloned into the pET28a(+) vector.</p>
                 </div>
             </section>
             
