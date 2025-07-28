@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500;700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     
-    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧬</text></svg>">
 
     <style>
@@ -66,7 +65,6 @@
             font-style: italic;
         }
         
-        /* FIX: Using column-count for proper text flow like a journal */
         .two-column {
             column-count: 2;
             column-gap: 2.5rem;
@@ -88,7 +86,7 @@
             margin: 3rem 0 1.5rem;
             border-bottom: 2px solid var(--primary-color);
             padding-bottom: 0.5rem;
-            column-span: all; /* Ensure section titles always span full width */
+            column-span: all;
         }
         
         .subsection-title {
@@ -96,8 +94,8 @@
             margin: 1.5rem 0 1rem;
             font-weight: 600;
             color: #343a40;
-            break-after: avoid; /* Prevent column break after a title */
-            break-inside: avoid; /* Prevent title from breaking across columns */
+            break-after: avoid;
+            break-inside: avoid;
         }
         
         .figure {
@@ -107,7 +105,7 @@
             border-radius: 0.5rem;
             border: 1px solid var(--light-gray);
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            break-inside: avoid; /* Prevent figures from splitting */
+            break-inside: avoid;
         }
         
         .figure-caption {
@@ -202,7 +200,7 @@
                 <h2 class="section-title">Abstract</h2>
                 <div class="bg-blue-50 p-6 rounded-lg border border-blue-200 text-justify">
                     <p class="mb-3">
-                        Group A Streptococcus (GAS) infections, caused by *Streptococcus pyogenes*, are responsible for a range of illnesses, from mild conditions like strep throat to severe, life-threatening diseases such as necrotizing fasciitis and streptococcal toxic shock syndrome (STSS), which has a mortality rate exceeding 35%. The target candidates for this vaccine design are the M protein and FbaA protein. Currently, no licensed vaccine is available. The advent of bioinformatics and immunoinformatics has facilitated vaccine development. Using online web servers like IEDB, VaxiJen, and ToxinPred, alongside databases such as NCBI and UniProt, we designed a chimeric vaccine. Selected epitopes were linked to construct a vaccine candidate, providing a promising path for viral vaccination development.
+                        [cite_start]Group A Streptococcus (GAS) infections, caused by *Streptococcus pyogenes*, are responsible for a range of illnesses, from mild conditions like strep throat to severe, life-threatening diseases such as necrotizing fasciitis and streptococcal toxic shock syndrome (STSS), which has a mortality rate exceeding 35%[cite: 901, 902, 904]. [cite_start]The target candidates for this vaccine design are the M protein and FbaA protein[cite: 906]. [cite_start]Currently, no licensed vaccine is available[cite: 907]. [cite_start]The advent of bioinformatics and immunoinformatics has facilitated vaccine development[cite: 908]. [cite_start]Using online web servers like IEDB, VaxiJen, and ToxinPred, alongside databases such as NCBI and UniProt, we designed a chimeric vaccine[cite: 909]. [cite_start]Selected epitopes were linked to construct a vaccine candidate, providing a promising path for viral vaccination development[cite: 910, 911].
                     </p>
                 </div>
             </section>
@@ -211,10 +209,10 @@
                 <h2 class="section-title">1. Introduction</h2>
                 <div class="two-column">
                     <p class="mb-4">
-                        Group A Streptococcus (GAS) infections, caused by the bacterium *Streptococcus pyogenes*, encompass a range of illnesses from mild conditions like strep throat and impetigo to severe, life-threatening diseases such as necrotizing fasciitis and streptococcal toxic shock syndrome (STSS). *Streptococcus pyogenes* is notably adaptable to the human host, resulting in various infections with differing severity levels. The mortality rate for STSS exceeds 35%, with a study indicating a case-fatality rate of 11.7% for invasive GAS infections, which is even higher for septic shock (45%), STSS (38%), and necrotizing fasciitis (29%). Presently, no vaccines exist to prevent GAS infections, although good hygiene practices like handwashing can help reduce transmission.
+                        [cite_start]Group A Streptococcus (GAS) infections, caused by the bacterium *Streptococcus pyogenes*, encompass a range of illnesses from mild conditions like strep throat and impetigo to severe, life-threatening diseases such as necrotizing fasciitis and streptococcal toxic shock syndrome (STSS)[cite: 927]. [cite_start]*Streptococcus pyogenes* is notably adaptable to the human host, resulting in various infections with differing severity levels[cite: 928]. [cite_start]The mortality rate for STSS exceeds 35%, with a study indicating a case-fatality rate of 11.7% for invasive GAS infections, which is even higher for septic shock (45%), STSS (38%), and necrotizing fasciitis (29%)[cite: 929]. [cite_start]Presently, no vaccines exist to prevent GAS infections, although good hygiene practices like handwashing can help reduce transmission[cite: 930].
                     </p>
                      <p class="mb-4">
-                        Bioinformatics has played a significant role in advancing vaccine development. For the vaccine design against GAS infections, two proteins were targeted: the M protein and the FbaA protein. The M protein, a significant virulence factor, aids in immune system evasion, whereas the FbaA protein is crucial for fibronectin binding, facilitating the pathogen's adherence and invasion. These proteins were chosen for their immunogenic properties, and various epitopes were identified and analyzed to elicit an immune response. Bioinformatics tools predicted B-cell, MHC I, and MHC II epitopes, evaluating their antigenicity, allergenicity, toxicity, and IFN-gamma responses. These analyses were crucial in designing an effective chimeric vaccine construct aimed at providing immunity against GAS infections.
+                        [cite_start]Bioinformatics has played a significant role in advancing vaccine development[cite: 931]. [cite_start]For the vaccine design against GAS infections, two proteins were targeted: the M protein and the FbaA protein[cite: 933]. [cite_start]The M protein, a significant virulence factor, aids in immune system evasion, whereas the FbaA protein is crucial for fibronectin binding, facilitating the pathogen's adherence and invasion[cite: 934, 941, 946]. [cite_start]These proteins were chosen for their immunogenic properties, and various epitopes were identified and analyzed to elicit an immune response[cite: 935]. [cite_start]Bioinformatics tools predicted B-cell, MHC I, and MHC II epitopes, evaluating their antigenicity, allergenicity, toxicity, and IFN-gamma responses[cite: 936]. [cite_start]These analyses were crucial in designing an effective chimeric vaccine construct aimed at providing immunity against GAS infections[cite: 937].
                     </p>
                 </div>
             </section>
@@ -224,32 +222,32 @@
                 <div class="two-column">
                     <h3 class="subsection-title">2.1. Protein sequences identification and retrieval</h3>
                     <p class="mb-4">
-                        The National Center for Biotechnology Information's (NCBI) database was used to identify Group A Streptococcus and select the genome and their target proteins (FbaA & M proteins). The information was obtained by literature review. Then, in FASTA format, the target protein sequences of the chosen strain were retrieved from the UniProt database (IDs: P12379.1, Q93R11).
+                        [cite_start]The National Center for Biotechnology Information's (NCBI) database was used to identify Group A Streptococcus and select the genome and their target proteins (FbaA & M proteins)[cite: 963]. [cite_start]The information was obtained by literature review[cite: 964]. [cite_start]Then, in FASTA format, the target protein sequences of the chosen strain were retrieved from the UniProt database (IDs: P12379.1, Q93R11)[cite: 3, 964].
                     </p>
 
                     <h3 class="subsection-title">2.2. Epitope Prediction (B-cell and T-cell)</h3>
                     <p class="mb-4">
-                        B-cell epitopes, which are recognized by B-cell receptors and antibodies, were predicted to stimulate humoral immunity. T-cell epitopes, presented by MHC class I and II molecules, were predicted using the Immune Epitope Database (IEDB). CTL epitopes (MHC-I binding) were screened for their ability to activate CD8+ T-cells, while HTL epitopes (MHC-II binding) were screened for their role in activating CD4+ helper T-cells, which are crucial for a coordinated adaptive immune response.
+                        [cite_start]B-cell epitopes, which are recognized by B-cell receptors and antibodies, were predicted to stimulate humoral immunity[cite: 969]. [cite_start]T-cell epitopes, presented by MHC class I and II molecules, were predicted using the Immune Epitope Database (IEDB)[cite: 972]. [cite_start]CTL epitopes (MHC-I binding) were screened for their ability to activate CD8+ T-cells, while HTL epitopes (MHC-II binding) were screened for their role in activating CD4+ helper T-cells, which are crucial for a coordinated adaptive immune response[cite: 973, 974, 978].
                     </p>
 
                     <h3 class="subsection-title">2.3. Immunogenicity Analysis</h3>
                      <p class="mb-4">
-                        Predicted CTL and HTL epitopes were further shortlisted by applying multiple immunological filters. Allergenicity was predicted using AllerTOP2.0. Antigenicity was determined using the VaxiJen v2.0 server with a threshold above 0.4. Toxicity was evaluated using the ToxinPred server. The IFNepitope webserver was used to predict epitopes that can induce interferon-gamma, and IFN-γ positive epitopes were selected.
+                        [cite_start]Predicted CTL and HTL epitopes were further shortlisted by applying multiple immunological filters[cite: 984]. [cite_start]Allergenicity was predicted using AllerTOP2.0[cite: 985]. [cite_start]Antigenicity was determined using the VaxiJen v2.0 server with a threshold above 0.4[cite: 985]. [cite_start]Toxicity was evaluated using the ToxinPred server[cite: 986]. [cite_start]The IFNepitope webserver was used to predict epitopes that can induce interferon-gamma, and IFN-γ positive epitopes were selected[cite: 987, 988].
                     </p>
 
                     <h3 class="subsection-title">2.4. Vaccine Construction</h3>
                     <p class="mb-4">
-                        A multi-epitope vaccine was designed using all the prioritized T-cell epitopes connected by two types of linkers, AAY and GPGPG. The AAY linker was used to join CTL epitopes while the GPGPG linker was used to connect HTL epitopes. A 50S ribosome adjuvant was added at the N-terminal, accompanied by an EAAAK linker to trigger a vigorous immune response and improve epitope presentation.
+                        [cite_start]A multi-epitope vaccine was designed using all the prioritized T-cell epitopes connected by two types of linkers, AAY and GPGPG[cite: 221, 999]. [cite_start]The AAY linker was used to join CTL epitopes while the GPGPG linker was used to connect HTL epitopes[cite: 221, 999]. [cite_start]A 50S ribosome adjuvant was added at the N-terminal, accompanied by an EAAAK linker to trigger a vigorous immune response and improve epitope presentation[cite: 222, 1000].
                     </p>
 
                     <h3 class="subsection-title">2.5. Physicochemical, Structural, and Docking Analysis</h3>
                     <p class="mb-4">
-                        Physicochemical properties were investigated using the ProtParam tool. The SOLUPROT server predicted solubility. The secondary structure was determined using the PSIPRED online server. The 3D structure was predicted using the Robetta server and validated using MOLPROBITY. To evaluate binding affinity, the MEV was docked with TLR4, MHC-I, and MHC-II using the HADDOCK v.2.2 online web server.
+                        [cite_start]Physicochemical properties were investigated using the ProtParam tool[cite: 243, 1002]. [cite_start]The SOLUPROT server predicted solubility[cite: 248, 1003]. [cite_start]The secondary structure was determined using the PSIPRED online server[cite: 1006]. [cite_start]The 3D structure was predicted using the Robetta server and validated using MOLPROBITY[cite: 341, 1009, 1345]. [cite_start]To evaluate binding affinity, the MEV was docked with TLR4, MHC-I, and MHC-II using the HADDOCK v.2.2 online web server[cite: 418, 1017].
                     </p>
                     
                     <h3 class="subsection-title">2.6. In Silico Immune Simulation and Cloning</h3>
                     <p class="mb-4">
-                        An in silico immune simulation was performed using the C-ImmSim server to validate the immunological response of the constructed MEV. For expression, the Java Codon Adaptation Tool (JCAT) server was used for MEV codon optimization for the *E. coli* K12 system. Finally, the SnapGene tool was used to clone the optimized sequence into the expression vector pET28a(+).
+                        [cite_start]An in silico immune simulation was performed using the C-ImmSim server to validate the immunological response of the constructed MEV[cite: 662, 1020]. [cite_start]For expression, the Java Codon Adaptation Tool (JCAT) server was used for MEV codon optimization for the *E. coli* K12 system[cite: 774, 1027]. [cite_start]Finally, the SnapGene tool was used to clone the optimized sequence into the expression vector pET28a(+)[cite: 776, 1031].
                     </p>
                 </div>
             </section>
@@ -259,7 +257,7 @@
                 
                 <h3 class="subsection-title full-width">3.1. Immunogenicity Screening of Epitopes</h3>
                 <p class="mb-4 text-justify">
-                    The target proteins were submitted to the IEDB server, which predicted numerous CTL and HTL epitopes. These were assessed for their immunological properties. Collectively, 13 MHC-I and 12 MHC-II epitopes were selected for the vaccine construct based on their high antigenicity, non-toxicity, non-allergenicity, and ability to induce interferon-gamma.
+                    [cite_start]The target proteins were submitted to the IEDB server, which predicted numerous CTL and HTL epitopes[cite: 86]. These were assessed for their immunological properties. [cite_start]Collectively, 13 MHC-I and 12 MHC-II epitopes were selected for the vaccine construct based on their high antigenicity, non-toxicity, non-allergenicity, and ability to induce interferon-gamma[cite: 88, 1118].
                 </p>
 
                 <div class="figure full-width">
@@ -289,46 +287,46 @@
 
                 <h3 class="subsection-title full-width">3.2. Vaccine Construct and Physicochemical Properties</h3>
                 <p class="mb-4 text-justify">
-                    The final multi-epitope vaccine construct is a 601 amino acid chimeric protein. The physicochemical analysis predicted a molecular weight of 61.6 kDa and a theoretical pI of 6.08. The instability index was calculated to be 31.72, classifying the protein as stable. The aliphatic index of 62.33 suggests good thermostability, and the negative GRAVY score of -0.428 indicates that the protein is hydrophilic and likely to be soluble (solubility score of 0.884).
+                    [cite_start]The final multi-epitope vaccine construct is a 601 amino acid chimeric protein[cite: 250]. [cite_start]The physicochemical analysis predicted a molecular weight of 61.6 kDa and a theoretical pI of 6.08[cite: 244, 1225, 1250]. [cite_start]The instability index was calculated to be 31.72, classifying the protein as stable[cite: 245, 1226]. [cite_start]The aliphatic index of 62.33 suggests good thermostability, and the negative GRAVY score of -0.428 indicates that the protein is hydrophilic and likely to be soluble (solubility score of 0.884)[cite: 246, 248, 1227, 1231, 1250].
                 </p>
                 <div class="figure full-width">
-                    <img src="images/vaccine-construct.png" alt="Vaccine Construct Diagram" class="rounded-lg w-full h-auto object-contain border">
-                    <p class="figure-caption"><span class="figure-number">Figure 1.</span> Schematic of the final multi-epitope vaccine construct.</p>
+                    <img src="https://i.imgur.com/3h2YqJ4.png" alt="Vaccine Construct Diagram" class="rounded-lg w-full h-auto object-contain border">
+                    [cite_start]<p class="figure-caption"><span class="figure-number">Figure 1.</span> Schematic of the final multi-epitope vaccine construct[cite: 226, 1127].</p>
                 </div>
 
                 <h3 class="subsection-title full-width">3.3. Structural Validation</h3>
                 <p class="mb-4 text-justify">
-                    The 3D model of the vaccine was validated using MOLPROBITY. The Ramachandran plot analysis showed that 94.16% of the amino acid residues were in the most favored regions, indicating a high-quality, stereochemically favorable protein structure.
+                    [cite_start]The 3D model of the vaccine was validated using MOLPROBITY[cite: 345, 1349]. [cite_start]The Ramachandran plot analysis showed that 94.16% of the amino acid residues were in the most favored regions, indicating a high-quality, stereochemically favorable protein structure[cite: 345, 369, 1349, 1372].
                 </p>
                 <div class="figure full-width">
-                    <img src="images/3d-structure-validation.png" alt="3D Structure and Ramachandran Plot" class="rounded-lg w-full h-auto object-contain border">
-                    <p class="figure-caption"><span class="figure-number">Figure 2.</span> The predicted tertiary structure of the vaccine construct (right) and its corresponding Ramachandran plot (left).</p>
+                    <img src="https://i.imgur.com/7b7r1E3.png" alt="3D Structure and Ramachandran Plot" class="rounded-lg w-full h-auto object-contain border">
+                    [cite_start]<p class="figure-caption"><span class="figure-number">Figure 2.</span> The predicted tertiary structure of the vaccine construct (right) and its corresponding Ramachandran plot (left)[cite: 415, 1418].</p>
                 </div>
 
                 <h3 class="subsection-title full-width">3.4. Molecular Docking and Interactions</h3>
                 <p class="mb-4 text-justify">
-                    Docking analysis showed strong interactions between the MEV and immune receptors. For TLR4, 38 residues of the vaccine interacted with 40 residues of the receptor, forming 267 non-bonded contacts and 15 hydrogen bonds. Similar strong interactions were observed for MHC-I and MHC-II.
+                    [cite_start]Docking analysis showed strong interactions between the MEV and immune receptors[cite: 419, 1421]. [cite_start]For TLR4, 38 residues of the vaccine interacted with 40 residues of the receptor, forming 267 non-bonded contacts and 15 hydrogen bonds[cite: 425, 1429]. [cite_start]Similar strong interactions were observed for MHC-I (35 vaccine residues, 37 receptor residues, 245 non-bonded contacts, 12 hydrogen bonds) and MHC-II (38 vaccine residues, 40 receptor residues, 267 non-bonded contacts, 15 hydrogen bonds)[cite: 426, 1430].
                 </p>
                 <div class="figure full-width">
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <img src="images/docking-tlr4.png" alt="Docked with TLR-4" class="rounded-lg w-full h-auto object-contain border">
-                        <img src="images/docking-mhc1.png" alt="Docked with MHC-I" class="rounded-lg w-full h-auto object-contain border">
-                        <img src="images/docking-mhc2.png" alt="Docked with MHC-II" class="rounded-lg w-full h-auto object-contain border">
+                        <img src="https://i.imgur.com/gO1fW6K.png" alt="Docked with TLR-4" class="rounded-lg w-full h-auto object-contain border">
+                        <img src="https://i.imgur.com/J8n8h7w.png" alt="Docked with MHC-I" class="rounded-lg w-full h-auto object-contain border">
+                        <img src="https://i.imgur.com/s6E7g4Q.png" alt="Docked with MHC-II" class="rounded-lg w-full h-auto object-contain border">
                     </div>
-                    <p class="figure-caption"><span class="figure-number">Figure 3.</span> Molecular docking complexes of the vaccine construct with immune receptors.</p>
+                    [cite_start]<p class="figure-caption"><span class="figure-number">Figure 3.</span> Molecular docking complexes of the vaccine construct with immune receptors[cite: 420, 421, 422, 1423, 1424, 1425].</p>
                 </div>
 
                 <h3 class="subsection-title full-width">3.5. Immune Simulation and Cloning</h3>
                 <p class="mb-4 text-justify">
-                    The C-ImmSim server predicted a robust immune response, with a steady rise in immunoglobulins (IgG1+IgM, IgG+IgM) and activation of B-cells, helper T-cells, and cytotoxic T-cells. This reflects the vaccine's capacity to create a high secondary immune response and healthy immune memory. The optimized MEV construct contained 2061 nucleotides with an ideal GC content of 51.30% and a CAI value of 1.0, and was successfully cloned into the pET28a(+) vector.
+                    [cite_start]The C-ImmSim server predicted a robust immune response, with a steady rise in immunoglobulins (IgG1+IgM, IgG+IgM) and activation of B-cells, helper T-cells, and cytotoxic T-cells[cite: 662, 1683, 1684]. [cite_start]This reflects the vaccine's capacity to create a high secondary immune response and healthy immune memory[cite: 662, 1684]. [cite_start]The optimized MEV construct contained 2061 nucleotides with an ideal GC content of 51.30% and a CAI value of 1.0, and was successfully cloned into the pET28a(+) vector[cite: 775, 776, 1805, 1806].
                 </p>
                 <div class="figure full-width">
-                    <img src="images/immune-simulation.png" alt="Immune Simulation Results" class="rounded-lg w-full h-auto object-contain border">
-                    <p class="figure-caption"><span class="figure-number">Figure 4.</span> Predicted immune response from the C-ImmSim server.</p>
+                    <img src="https://i.imgur.com/uR3C0tM.png" alt="Immune Simulation Results" class="rounded-lg w-full h-auto object-contain border">
+                    [cite_start]<p class="figure-caption"><span class="figure-number">Figure 4.</span> Predicted immune response from the C-ImmSim server[cite: 691, 1711].</p>
                 </div>
                  <div class="figure full-width">
-                    <img src="images/in-silico-cloning.png" alt="Plasmid Map" class="rounded-lg w-full h-auto object-contain border">
-                    <p class="figure-caption"><span class="figure-number">Figure 5.</span> Recombinant plasmid map showing the optimized vaccine gene cloned into the pET28a(+) vector.</p>
+                    <img src="https://i.imgur.com/k2jJv4h.png" alt="Plasmid Map" class="rounded-lg w-full h-auto object-contain border">
+                    [cite_start]<p class="figure-caption"><span class="figure-number">Figure 5.</span> Recombinant plasmid map showing the optimized vaccine gene cloned into the pET28a(+) vector[cite: 861, 1892].</p>
                 </div>
             </section>
             
@@ -336,10 +334,10 @@
                 <h2 class="section-title full-width">4. Discussion</h2>
                 <div class="two-column">
                     <p class="mb-4">
-                        This study outlines the development of a multi-epitope vaccine (MEV) targeting Group A Streptococcus (GAS) infections. The designed chimeric vaccine construct aimed to elicit strong immunogenic responses, as evidenced by immune simulations indicating the potential for robust secondary immune responses and long-term immune memory. The vaccine development process involved a comprehensive use of bioinformatics tools for predicting and analyzing potential epitopes from the M protein and FbaA protein of GAS.
+                        [cite_start]This study outlines the development of a multi-epitope vaccine (MEV) targeting Group A Streptococcus (GAS) infections[cite: 1895]. [cite_start]The designed chimeric vaccine construct aimed to elicit strong immunogenic responses, as evidenced by immune simulations indicating the potential for robust secondary immune responses and long-term immune memory[cite: 1901]. [cite_start]The vaccine development process involved a comprehensive use of bioinformatics tools for predicting and analyzing potential epitopes from the M protein and FbaA protein of GAS[cite: 1898].
                     </p>
                      <p class="mb-4">
-                        The immune simulation studies showed that the vaccine could stimulate significant primary and secondary immune reactions, with increases in various immunoglobulins and immune cells. The construct also demonstrated the potential to induce the production of crucial cytokines like IFN-γ, essential for combating infections. The successful in silico cloning and codon optimization for expression in *E. coli* hosts further underscore the feasibility of producing the vaccine. Overall, the document presents a comprehensive approach to developing a novel vaccine against GAS, paving the way for further research and potential clinical application.
+                        [cite_start]The immune simulation studies showed that the vaccine could stimulate significant primary and secondary immune reactions, with increases in various immunoglobulins and immune cells[cite: 1903]. [cite_start]The construct also demonstrated the potential to induce the production of crucial cytokines like IFN-γ, essential for combating infections[cite: 1904]. [cite_start]The successful in silico cloning and codon optimization for expression in *E. coli* hosts further underscore the feasibility of producing the vaccine[cite: 1902]. [cite_start]Overall, the document presents a comprehensive approach to developing a novel vaccine against GAS, paving the way for further research and potential clinical application[cite: 1905].
                     </p>
                 </div>
             </section>
@@ -348,7 +346,7 @@
                 <h2 class="section-title full-width">5. Conclusion</h2>
                 <div class="two-column">
                     <p>
-                        The conclusion of this paper encapsulates the comprehensive effort to design a multi-epitope vaccine (MEV) targeting Group A Streptococcus (GAS) infections through an in silico approach. The resultant vaccine construct demonstrated a significant ability to stimulate immune responses, as indicated by immune simulation studies. The proposed vaccine construct holds promise for providing robust immunity against GAS infections, highlighting the importance of further research and clinical trials to confirm its efficacy and safety for human application. This research lays the groundwork for innovative approaches in combating GAS infections, advocating for the continued integration of bioinformatics in vaccine development.
+                        [cite_start]The conclusion of this paper encapsulates the comprehensive effort to design a multi-epitope vaccine (MEV) targeting Group A Streptococcus (GAS) infections through an in silico approach[cite: 1927]. [cite_start]The resultant vaccine construct demonstrated a significant ability to stimulate immune responses, as indicated by immune simulation studies[cite: 1929]. [cite_start]The proposed vaccine construct holds promise for providing robust immunity against GAS infections, highlighting the importance of further research and clinical trials to confirm its efficacy and safety for human application[cite: 1930]. [cite_start]This research lays the groundwork for innovative approaches in combating GAS infections, advocating for the continued integration of bioinformatics in vaccine development[cite: 1935].
                     </p>
                 </div>
             </section>
@@ -357,8 +355,8 @@
                 <h2 class="section-title full-width">6. References</h2>
                 <div class="two-column references">
                     <ol>
-                        <li class="reference-item">1. Brouwer, S., Barnett, T. C., Rivera-Hernandez, T., Rohde, M., & Walker, M. J. (2016). Streptococcus pyogenes adhesion and colonization. *FEBS Letters*, 590(21), 3739-3757.</li>
-                        <li class="reference-item">2. Carapetis, J. R., Steer, A. C., Mulholland, E. K., & Weber, M. (2005). The global burden of group A streptococcal diseases. *The Lancet Infectious Diseases*, 5(11), 685-694.</li>
+                        <li class="reference-item">1. Brouwer, S., Barnett, T. C., Rivera-Hernandez, T., Rohde, M., & Walker, M. J. (2016). Streptococcus pyogenes adhesion and colonization. [cite_start]*FEBS Letters*, 590(21), 3739-3757[cite: 1960, 1961].</li>
+                        <li class="reference-item">2. Carapetis, J. R., Steer, A. C., Mulholland, E. K., & Weber, M. (2005). The global burden of group A streptococcal diseases. [cite_start]*The Lancet Infectious Diseases*, 5(11), 685-694[cite: 1964, 1965].</li>
                         <li class="reference-item">3. Vita, R., Mahajan, S., Overton, J. A., et al. (2019). The Immune Epitope Database (IEDB): 2018 update. *Nucleic Acids Research*, 47(D1), D339-D343.</li>
                         <li class="reference-item">4. Doytchinova, I. A., & Flower, D. R. (2007). VaxiJen: a server for prediction of protective antigens, tumor antigens and subunit vaccines. *BMC Bioinformatics*, 8(1), 4.</li>
                         <li class="reference-item">5. Dimitrov, I., Flower, D. R., & Doytchinova, I. (2013). AllerTOP-a server for in silico prediction of allergens. *BMC Bioinformatics*, 14(S6), S4.</li>
@@ -396,3 +394,4 @@
     </script>
 </body>
 </html>
+```
