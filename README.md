@@ -1,4 +1,5 @@
-🧬 Multi-Epitope Vaccine Design Against Group A Streptococcus (GAS)
+# Heading 1 🧬 Multi-Epitope Vaccine Design Against Group A Streptococcus (GAS)
+
 The research paper is live at https://rakesh-kumar-a.github.io/Insilico-design-of-GAS-Vaccine/
 
 This repository presents a comprehensive in silico pipeline for the design, structural validation, and immunological characterization of a multi-epitope vaccine candidate targeting Group A Streptococcus (GAS).
@@ -48,29 +49,16 @@ HADDOCK docking with: <br> • TLR4 (innate immunity) <br> • MHC-I (CD8+ T cel
 C-ImmSim: Predicted robust humoral and cellular responses, with increased memory T and B cells, key cytokines (IFN-γ), and antibody levels (IgM, IgG).
 
 🧪 Final Construct (Summary)
-Property
 
-Value
+Length - 601 amino acids
 
-Length
+MW - 61.6 kDa
 
-601 amino acids
+pI - 6.08
 
-MW
+Instability Index - 31.72 (stable)
 
-61.6 kDa
-
-pI
-
-6.08
-
-Instability Index
-
-31.72 (stable)
-
-GRAVY
-
--0.428 (hydrophilic)
+GRAVY - (-0.428) (hydrophilic)
 
 🔬 Conclusion & Future Scope
 This project successfully designed a promising multi-epitope vaccine candidate against Group A Streptococcus using a robust in silico pipeline. The designed vaccine demonstrated excellent antigenic properties, structural stability, and the potential to elicit a strong, long-lasting immune response.
