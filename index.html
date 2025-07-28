@@ -67,25 +67,25 @@
         }
         
         .two-column {
-            column-count: 2;
-            column-gap: 2.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
             text-align: justify;
         }
 
-        @media (max-width: 768px) {
+        @media (min-width: 768px) {
             .two-column {
-                column-count: 1;
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         
         .full-width {
-            column-span: all;
+            grid-column: 1 / -1;
         }
         
         .section-title {
             font-size: 1.75rem;
             margin: 3rem 0 1.5rem;
-            column-span: all;
             border-bottom: 2px solid var(--primary-color);
             padding-bottom: 0.5rem;
         }
@@ -99,7 +99,6 @@
         
         .figure {
             margin: 2rem 0;
-            break-inside: avoid;
             background: white;
             padding: 1.5rem;
             border-radius: 0.5rem;
@@ -199,13 +198,7 @@
                 <h2 class="section-title full-width">Abstract</h2>
                 <div class="bg-blue-50 p-6 rounded-lg border border-blue-200 text-justify">
                     <p class="mb-3">
-                        Group A Streptococcus (GAS), or *Streptococcus pyogenes*, remains a significant global health threat, causing a wide spectrum of diseases from mild pharyngitis to severe, life-threatening conditions like necrotizing fasciitis and streptococcal toxic shock syndrome. Despite its prevalence, no licensed vaccine is currently available. This study details the computational design and validation of a multi-epitope subunit vaccine against GAS using an integrated immunoinformatics approach.
-                    </p>
-                    <p class="mb-3">
-                        We identified highly immunogenic T-cell and B-cell epitopes from the M protein and FbaA protein, two critical GAS virulence factors. A 601-amino acid chimeric vaccine was constructed by linking these epitopes with appropriate linkers (EAAAK, AAY, GPGPG) and incorporating a 50S ribosomal protein L7/L12 as an adjuvant to enhance immunogenicity.
-                    </p>
-                    <p>
-                        Comprehensive in silico analysis confirmed the construct to be antigenic, non-allergenic, and possess favorable physicochemical properties suggesting stability and solubility. Structural modeling and validation revealed a high-quality tertiary structure. Molecular docking demonstrated strong, stable binding interactions with key immune receptors (TLR4, MHC-I, MHC-II). Immune simulations predicted the induction of robust humoral and cell-mediated responses. Finally, codon optimization and in silico cloning confirmed the high potential for expression in *E. coli*. These findings suggest that our rationally designed vaccine is a promising candidate that warrants experimental validation.
+                        Group A Streptococcus (GAS) infections, caused by *Streptococcus pyogenes*, are responsible for a range of illnesses, from mild conditions like strep throat to severe, life-threatening diseases such as necrotizing fasciitis and streptococcal toxic shock syndrome (STSS), which has a mortality rate exceeding 35%. The target candidates for this vaccine design are the M protein and FbaA protein. Currently, no licensed vaccine is available. The advent of bioinformatics and immunoinformatics has facilitated vaccine development. Using online web servers like IEDB, VaxiJen, and ToxinPred, alongside databases such as NCBI and UniProt, we designed a chimeric vaccine. Selected epitopes were linked to construct a vaccine candidate, providing a promising path for viral vaccination development.
                     </p>
                 </div>
             </section>
@@ -214,16 +207,10 @@
                 <h2 class="section-title">1. Introduction</h2>
                 <div class="two-column">
                     <p class="mb-4">
-                        *Streptococcus pyogenes*, also known as Group A Streptococcus (GAS), is a formidable human pathogen responsible for over 500,000 deaths annually worldwide. It causes a diverse array of diseases, ranging from common superficial infections like pharyngitis ("strep throat") and impetigo to severe, invasive diseases such as streptococcal toxic shock syndrome (STSS) and necrotizing fasciitis, which carry high mortality rates. Furthermore, post-streptococcal autoimmune sequelae, including acute rheumatic fever and glomerulonephritis, contribute significantly to the global burden of disease, particularly in low-resource settings.
+                        Group A Streptococcus (GAS) infections, caused by the bacterium *Streptococcus pyogenes*, encompass a range of illnesses from mild conditions like strep throat and impetigo to severe, life-threatening diseases such as necrotizing fasciitis and streptococcal toxic shock syndrome (STSS). *Streptococcus pyogenes* is notably adaptable to the human host, resulting in various infections with differing severity levels. The mortality rate for STSS exceeds 35%, with a study indicating a case-fatality rate of 11.7% for invasive GAS infections, which is even higher for septic shock (45%), STSS (38%), and necrotizing fasciitis (29%). Presently, no vaccines exist to prevent GAS infections, although good hygiene practices like handwashing can help reduce transmission.
                     </p>
-                    <p class="mb-4">
-                        The M protein is a major virulence factor of GAS, crucial for its ability to evade the host immune system. The FbaA protein is another key factor, facilitating fibronectin binding, which is essential for the pathogen's adherence to and invasion of host cells. The high variability of the M protein has been a major obstacle to traditional vaccine development, necessitating novel approaches that can provide broad protection.
-                    </p>
-                    <p class="mb-4">
-                        In recent years, reverse vaccinology and immunoinformatics have emerged as powerful tools for rational vaccine design. This *in silico* approach allows for the rapid identification of promising antigenic candidates from genomic and proteomic data, bypassing the need to culture pathogens and significantly accelerating the preclinical development phase. By focusing on conserved and immunodominant epitopes, it is possible to design multi-epitope subunit vaccines that can elicit a targeted and robust immune response while minimizing the risk of allergenicity or adverse reactions.
-                    </p>
-                    <p class="mb-4">
-                        This study employs a comprehensive immunoinformatics pipeline to design a multi-epitope vaccine against GAS. We targeted the M protein and FbaA protein to identify conserved T-cell and B-cell epitopes. These epitopes were then assembled into a single chimeric protein, fused with a potent adjuvant to boost its immunogenicity. The designed vaccine was subjected to extensive computational analysis, including evaluation of its physicochemical properties, structural modeling, molecular docking with immune receptors, and simulation of the resulting immune response. Our goal is to develop a promising vaccine candidate that is stable, safe, and capable of inducing a strong protective immune response against GAS.
+                     <p class="mb-4">
+                        Bioinformatics has played a significant role in advancing vaccine development. For the vaccine design against GAS infections, two proteins were targeted: the M protein and the FbaA protein. The M protein, a significant virulence factor, aids in immune system evasion, whereas the FbaA protein is crucial for fibronectin binding, facilitating the pathogen's adherence and invasion. These proteins were chosen for their immunogenic properties, and various epitopes were identified and analyzed to elicit an immune response. Bioinformatics tools predicted B-cell, MHC I, and MHC II epitopes, evaluating their antigenicity, allergenicity, toxicity, and IFN-gamma responses. These analyses were crucial in designing an effective chimeric vaccine construct aimed at providing immunity against GAS infections.
                     </p>
                 </div>
             </section>
@@ -231,34 +218,34 @@
             <section id="methods">
                 <h2 class="section-title full-width">2. Materials and Methods</h2>
                 <div class="two-column">
-                    <h3 class="subsection-title full-width">2.1. Protein Retrieval and Epitope Prediction</h3>
+                    <h3 class="subsection-title full-width">2.1. Protein sequences identification and retrieval</h3>
                     <p class="mb-4">
-                        The amino acid sequences for the M protein (UniProt ID: P12379.1) and FbaA protein (UniProt ID: Q93R11) of *S. pyogenes* were retrieved from the UniProt database. The Immune Epitope Database (IEDB) was utilized to predict potential T-cell epitopes binding to MHC class I and class II alleles. B-cell epitopes were also predicted. The predicted epitopes were screened for antigenicity using the VaxiJen v2.0 server, allergenicity using AllerTOP v2.0, and toxicity via the ToxinPred server. Only epitopes that were predicted to be antigenic, non-allergenic, and non-toxic were selected for vaccine construction.
+                        The National Center for Biotechnology Information's (NCBI) database was used to identify Group A Streptococcus and select the genome and their target proteins (FbaA & M proteins). The information was obtained by literature review. Then, in FASTA format, the target protein sequences of the chosen strain were retrieved from the UniProt database (IDs: P12379.1, Q93R11).
                     </p>
 
-                    <h3 class="subsection-title full-width">2.2. Vaccine Construction</h3>
+                    <h3 class="subsection-title full-width">2.2. Epitope Prediction (B-cell and T-cell)</h3>
                     <p class="mb-4">
-                        A multi-epitope vaccine was designed by sequentially linking the selected epitopes. A 50S ribosomal protein L7/L12 adjuvant was added at the N-terminus, connected by an EAAAK linker. Cytotoxic T-lymphocyte (CTL) epitopes were joined using AAY linkers, while Helper T-lymphocyte (HTL) epitopes were connected with GPGPG linkers to maintain independent immunogenic presentation.
+                        B-cell epitopes, which are recognized by B-cell receptors and antibodies, were predicted to stimulate humoral immunity. T-cell epitopes, presented by MHC class I and II molecules, were predicted using the Immune Epitope Database (IEDB). CTL epitopes (MHC-I binding) were screened for their ability to activate CD8+ T-cells, while HTL epitopes (MHC-II binding) were screened for their role in activating CD4+ helper T-cells, which are crucial for a coordinated adaptive immune response.
                     </p>
 
-                    <h3 class="subsection-title full-width">2.3. Physicochemical and Structural Analysis</h3>
-                    <p class="mb-4">
-                        The physicochemical properties of the final vaccine construct, including molecular weight, theoretical pI, instability index, aliphatic index, and Grand Average of Hydropathicity (GRAVY), were computed using the ProtParam tool on the ExPASy server. The secondary structure was predicted using the PSIPRED server. The tertiary (3D) structure was modeled using the Robetta server. The quality and stereochemical properties of the 3D model were validated using MOLPROBITY, which generates a Ramachandran plot analysis.
+                    <h3 class="subsection-title full-width">2.3. Immunogenicity Analysis</h3>
+                     <p class="mb-4">
+                        Predicted CTL and HTL epitopes were further shortlisted by applying multiple immunological filters. Allergenicity was predicted using AllerTOP2.0. Antigenicity was determined using the VaxiJen v2.0 server with a threshold above 0.4. Toxicity was evaluated using the ToxinPred server. The IFNepitope webserver was used to predict epitopes that can induce interferon-gamma, and IFN-γ positive epitopes were selected.
                     </p>
 
-                    <h3 class="subsection-title full-width">2.4. Molecular Docking</h3>
+                    <h3 class="subsection-title full-width">2.4. Vaccine Construction</h3>
                     <p class="mb-4">
-                        To evaluate the binding affinity of the vaccine with key immune receptors, protein-protein docking was performed using the HADDOCK v2.2 web server. The vaccine construct was docked with Toll-like receptor 4 (TLR4), MHC-I, and MHC-II molecules. The resulting complexes were analyzed for binding energy and interacting residues.
+                        A multi-epitope vaccine was designed using all the prioritized T-cell epitopes connected by two types of linkers, AAY and GPGPG. The AAY linker was used to join CTL epitopes while the GPGPG linker was used to connect HTL epitopes. A 50S ribosome adjuvant was added at the N-terminal, accompanied by an EAAAK linker to trigger a vigorous immune response and improve epitope presentation.
                     </p>
 
-                    <h3 class="subsection-title full-width">2.5. Immune Simulation</h3>
+                    <h3 class="subsection-title full-width">2.5. Physicochemical, Structural, and Docking Analysis</h3>
                     <p class="mb-4">
-                        An *in silico* immune simulation was performed using the C-ImmSim server to predict the immunogenic profile of the vaccine. The simulation was run with a three-injection schedule at four-week intervals to mimic a standard vaccination protocol. The server predicts the response of various immune cell populations (B-cells, T-cells) and cytokine levels over time.
+                        Physicochemical properties were investigated using the ProtParam tool. The SOLUPROT server predicted solubility. The secondary structure was determined using the PSIPRED online server. The 3D structure was predicted using the Robetta server and validated using MOLPROBITY. To evaluate binding affinity, the MEV was docked with TLR4, MHC-I, and MHC-II using the HADDOCK v.2.2 online web server.
                     </p>
-
-                    <h3 class="subsection-title full-width">2.6. Codon Optimization and In Silico Cloning</h3>
+                    
+                    <h3 class="subsection-title full-width">2.6. In Silico Immune Simulation and Cloning</h3>
                     <p class="mb-4">
-                        The amino acid sequence of the vaccine was reverse-translated into a DNA sequence. This sequence was then codon-optimized for expression in the *E. coli* K12 strain using the Java Codon Adaptation Tool (JCAT) to ensure high-level protein expression. Finally, the optimized gene sequence was inserted into the pET28a(+) expression vector *in silico* using the SnapGene tool to generate a recombinant plasmid map.
+                        An in silico immune simulation was performed using the C-ImmSim server to validate the immunological response of the constructed MEV. For expression, the Java Codon Adaptation Tool (JCAT) server was used for MEV codon optimization for the *E. coli* K12 system. Finally, the SnapGene tool was used to clone the optimized sequence into the expression vector pET28a(+).
                     </p>
                 </div>
             </section>
@@ -266,27 +253,57 @@
             <section id="results">
                 <h2 class="section-title full-width">3. Results</h2>
                 <div class="two-column">
-                    <h3 class="subsection-title full-width">3.1. Vaccine Construct and Physicochemical Properties</h3>
+                    <h3 class="subsection-title full-width">3.1. Immunogenicity Screening of Epitopes</h3>
                     <p class="mb-4">
-                        The final multi-epitope vaccine construct is a 601 amino acid chimeric protein. The physicochemical analysis predicted a molecular weight of 61.6 kDa and a theoretical pI of 6.08. The instability index was calculated to be 31.72, classifying the protein as stable. The aliphatic index of 62.33 suggests good thermostability, and the negative GRAVY score of -0.428 indicates that the protein is hydrophilic and likely to be soluble.
+                        The target proteins were submitted to the IEDB server, which predicted numerous CTL and HTL epitopes. These were assessed for their immunological properties. Collectively, 13 MHC-I and 12 MHC-II epitopes were selected for the vaccine construct based on their high antigenicity, non-toxicity, non-allergenicity, and ability to induce interferon-gamma.
+                    </p>
+
+                    <div class="figure full-width">
+                        <h4 class="table-number">Table 1. Selected MHC-I and MHC-II Epitopes</h4>
+                        <div class="overflow-x-auto">
+                            <table class="journal-table">
+                                <thead>
+                                    <tr><th>Type</th><th>Sequence</th><th>Antigenicity</th><th>Allergenicity</th><th>Toxicity</th><th>Vaxijen Score</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>MHC-I</td><td>ESRLSEAQK</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>0.7860</td></tr>
+                                    <tr><td>MHC-I</td><td>ETPSPSTPA</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>0.7126</td></tr>
+                                    <tr><td>MHC-I</td><td>GEKAQPLFI</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>0.8372</td></tr>
+                                    <tr><td>MHC-I</td><td>TQASASDSM</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>1.0687</td></tr>
+                                    <tr><td>MHC-I</td><td>LSRQVRAHE</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>0.6496</td></tr>
+                                    <tr><td>MHC-I</td><td>ELAKLRAGK</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>0.5517</td></tr>
+                                    <tr><td>MHC-I</td><td>TGTASVAVAL</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>1.2002</td></tr>
+                                    <tr><td>MHC-II</td><td>AAPSQPAESEESSVA</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>0.9727</td></tr>
+                                    <tr><td>MHC-II</td><td>ESEEPSVAASSEETP</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>1.0163</td></tr>
+                                    <tr><td>MHC-II</td><td>ESRLSEAQKETYKQK</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>1.1374</td></tr>
+                                    <tr><td>MHC-II</td><td>EGAMNFSTADSAKIK</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>1.0145</td></tr>
+                                    <tr><td>MHC-II</td><td>GAMNFSTADSAKIKT</td><td>Antigen</td><td>Non-Allergen</td><td>Non-Toxin</td><td>0.9708</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <h3 class="subsection-title full-width">3.2. Vaccine Construct and Physicochemical Properties</h3>
+                    <p class="mb-4">
+                        The final multi-epitope vaccine construct is a 601 amino acid chimeric protein. The physicochemical analysis predicted a molecular weight of 61.6 kDa and a theoretical pI of 6.08. The instability index was calculated to be 31.72, classifying the protein as stable. The aliphatic index of 62.33 suggests good thermostability, and the negative GRAVY score of -0.428 indicates that the protein is hydrophilic and likely to be soluble (solubility score of 0.884).
                     </p>
                     <div class="figure full-width">
                         <img src="images/vaccine-construct.png" alt="Vaccine Construct Diagram" class="rounded-lg w-full h-auto object-contain border">
-                        <p class="figure-caption"><span class="figure-number">Figure 1.</span> Schematic of the final multi-epitope vaccine construct. The design includes an N-terminal adjuvant, followed by CTL epitopes (green) and HTL epitopes (orange/blue), connected by specific linkers to ensure proper immunogenic presentation.</p>
+                        <p class="figure-caption"><span class="figure-number">Figure 1.</span> Schematic of the final multi-epitope vaccine construct.</p>
                     </div>
 
-                    <h3 class="subsection-title full-width">3.2. Structural Validation</h3>
+                    <h3 class="subsection-title full-width">3.3. Structural Validation</h3>
                     <p class="mb-4">
-                        The 3D model of the vaccine, generated by the Robetta server, was validated using MOLPROBITY. The Ramachandran plot analysis showed that 94.16% of the amino acid residues were in the most favored regions, with an additional 4.67% in allowed regions. This indicates a high-quality, stereochemically favorable protein structure, which is crucial for its biological function and stability.
+                        The 3D model of the vaccine was validated using MOLPROBITY. The Ramachandran plot analysis showed that 94.16% of the amino acid residues were in the most favored regions, indicating a high-quality, stereochemically favorable protein structure.
                     </p>
                     <div class="figure full-width">
                         <img src="images/3d-structure-validation.png" alt="3D Structure and Ramachandran Plot" class="rounded-lg w-full h-auto object-contain border">
-                        <p class="figure-caption"><span class="figure-number">Figure 2.</span> The predicted tertiary structure of the vaccine construct (right) and its corresponding Ramachandran plot (left). The high percentage of residues in favored regions confirms the quality of the structural model.</p>
+                        <p class="figure-caption"><span class="figure-number">Figure 2.</span> The predicted tertiary structure of the vaccine construct (right) and its corresponding Ramachandran plot (left).</p>
                     </div>
 
-                    <h3 class="subsection-title full-width">3.3. Molecular Docking</h3>
+                    <h3 class="subsection-title full-width">3.4. Molecular Docking and Interactions</h3>
                     <p class="mb-4">
-                        Molecular docking simulations showed strong and stable binding between the vaccine construct and the immune receptors TLR4, MHC-I, and MHC-II. The interactions involved numerous non-bonded contacts, hydrogen bonds, and salt bridges, indicating a high binding affinity. This suggests that the vaccine can be effectively recognized by antigen-presenting cells and T-cells, a critical step for initiating an immune response.
+                        Docking analysis showed strong interactions between the MEV and immune receptors. For TLR4, 38 residues of the vaccine interacted with 40 residues of the receptor, forming 267 non-bonded contacts and 15 hydrogen bonds. Similar strong interactions were observed for MHC-I and MHC-II.
                     </p>
                     <div class="figure full-width">
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -294,25 +311,20 @@
                             <img src="images/docking-mhc1.png" alt="Docked with MHC-I" class="rounded-lg w-full h-auto object-contain border">
                             <img src="images/docking-mhc2.png" alt="Docked with MHC-II" class="rounded-lg w-full h-auto object-contain border">
                         </div>
-                        <p class="figure-caption"><span class="figure-number">Figure 3.</span> Molecular docking complexes of the vaccine construct with immune receptors. From left to right: vaccine docked with TLR-4, MHC-I, and MHC-II, demonstrating favorable binding orientations.</p>
+                        <p class="figure-caption"><span class="figure-number">Figure 3.</span> Molecular docking complexes of the vaccine construct with immune receptors.</p>
                     </div>
 
-                    <h3 class="subsection-title full-width">3.4. Immune Simulation</h3>
+                    <h3 class="subsection-title full-width">3.5. Immune Simulation and Cloning</h3>
                     <p class="mb-4">
-                        The C-ImmSim server predicted a robust immune response following the simulated three-dose vaccination schedule. The results showed a significant primary response and a strong secondary response, characterized by elevated levels of immunoglobulins (IgM and IgG), activation of B-cell and T-cell populations, and the production of key cytokines like IFN-γ. This indicates the vaccine's potential to induce long-lasting immunological memory.
+                        The C-ImmSim server predicted a robust immune response, with a steady rise in immunoglobulins (IgG1+IgM, IgG+IgM) and activation of B-cells, helper T-cells, and cytotoxic T-cells. This reflects the vaccine's capacity to create a high secondary immune response and healthy immune memory. The optimized MEV construct contained 2061 nucleotides with an ideal GC content of 51.30% and a CAI value of 1.0, and was successfully cloned into the pET28a(+) vector.
                     </p>
                     <div class="figure full-width">
                         <img src="images/immune-simulation.png" alt="Immune Simulation Results" class="rounded-lg w-full h-auto object-contain border">
-                        <p class="figure-caption"><span class="figure-number">Figure 4.</span> Predicted immune response from the C-ImmSim server. The graph shows antigen levels (black spikes) and the subsequent rise in antibody titers (colored lines), indicating a strong primary and memory response after each simulated injection.</p>
+                        <p class="figure-caption"><span class="figure-number">Figure 4.</span> Predicted immune response from the C-ImmSim server.</p>
                     </div>
-
-                    <h3 class="subsection-title full-width">3.5. Codon Optimization and In Silico Cloning</h3>
-                    <p class="mb-4">
-                        The vaccine's DNA sequence was successfully optimized for expression in *E. coli*, achieving a high Codon Adaptation Index (CAI) of 1.0 and an optimal GC content of 51.3%. The optimized gene was then cloned *in silico* into the pET28a(+) vector, confirming its suitability for high-level recombinant protein production in a standard laboratory expression system.
-                    </p>
-                    <div class="figure full-width">
+                     <div class="figure full-width">
                         <img src="images/in-silico-cloning.png" alt="Plasmid Map" class="rounded-lg w-full h-auto object-contain border">
-                        <p class="figure-caption"><span class="figure-number">Figure 5.</span> Recombinant plasmid map showing the optimized vaccine gene cloned into the pET28a(+) expression vector. This construct is ready for experimental protein production.</p>
+                        <p class="figure-caption"><span class="figure-number">Figure 5.</span> Recombinant plasmid map showing the optimized vaccine gene cloned into the pET28a(+) vector.</p>
                     </div>
                 </div>
             </section>
@@ -321,16 +333,10 @@
                 <h2 class="section-title full-width">4. Discussion</h2>
                 <div class="two-column">
                     <p class="mb-4">
-                        The urgent need for a vaccine against Group A Streptococcus, coupled with the challenges of traditional vaccine development, highlights the value of immunoinformatics. Our study demonstrates a comprehensive *in silico* pipeline that successfully designed a promising multi-epitope vaccine candidate. By targeting conserved epitopes from two key virulence factors, M protein and FbaA, our construct is designed to overcome the challenge of M-type variability and provide broader protection.
+                        This study outlines the development of a multi-epitope vaccine (MEV) targeting Group A Streptococcus (GAS) infections. The designed chimeric vaccine construct aimed to elicit strong immunogenic responses, as evidenced by immune simulations indicating the potential for robust secondary immune responses and long-term immune memory. The vaccine development process involved a comprehensive use of bioinformatics tools for predicting and analyzing potential epitopes from the M protein and FbaA protein of GAS.
                     </p>
-                    <p class="mb-4">
-                        The inclusion of a 50S ribosomal protein adjuvant is a key feature of our design, intended to stimulate a strong innate immune response, which is crucial for shaping the subsequent adaptive immunity. The favorable physicochemical properties, particularly the predicted stability and solubility, are critical for the practical aspects of vaccine manufacturing, storage, and delivery.
-                    </p>
-                    <p class="mb-4">
-                        The high-quality 3D structure and successful docking with TLR4, MHC-I, and MHC-II provide strong theoretical support for the vaccine's mechanism of action. The ability to bind effectively to these receptors is a prerequisite for inducing both cell-mediated and humoral immunity. Furthermore, the immune simulation results align with the characteristics of an effective vaccine, predicting a strong memory response that is essential for long-term protection.
-                    </p>
-                    <p class="mb-4">
-                        While the computational results are highly encouraging, it is crucial to acknowledge the limitations of an *in silico* study. These predictions require experimental validation. The next steps would involve synthesizing the optimized gene, expressing and purifying the recombinant protein, and then evaluating its immunogenicity and protective efficacy in preclinical animal models. Nonetheless, this study provides a robust, rationally designed candidate and a solid foundation for future experimental work.
+                     <p class="mb-4">
+                        The immune simulation studies showed that the vaccine could stimulate significant primary and secondary immune reactions, with increases in various immunoglobulins and immune cells. The construct also demonstrated the potential to induce the production of crucial cytokines like IFN-γ, essential for combating infections. The successful in silico cloning and codon optimization for expression in *E. coli* hosts further underscore the feasibility of producing the vaccine. Overall, the document presents a comprehensive approach to developing a novel vaccine against GAS, paving the way for further research and potential clinical application.
                     </p>
                 </div>
             </section>
@@ -339,7 +345,7 @@
                 <h2 class="section-title full-width">5. Conclusion</h2>
                 <div class="two-column">
                     <p>
-                        In conclusion, this study successfully employed a range of immunoinformatics tools to design and validate a novel multi-epitope subunit vaccine against Group A Streptococcus. The final construct is predicted to be a stable, soluble, antigenic, and non-allergenic protein capable of inducing a robust and comprehensive immune response. The computational evidence strongly suggests that this vaccine candidate has the potential to be an effective prophylactic agent against GAS infections. This work underscores the power of *in silico* methods to accelerate the development of next-generation vaccines and provides a promising candidate that is ready for experimental validation.
+                        The conclusion of this paper encapsulates the comprehensive effort to design a multi-epitope vaccine (MEV) targeting Group A Streptococcus (GAS) infections through an in silico approach. The resultant vaccine construct demonstrated a significant ability to stimulate immune responses, as indicated by immune simulation studies. The proposed vaccine construct holds promise for providing robust immunity against GAS infections, highlighting the importance of further research and clinical trials to confirm its efficacy and safety for human application. This research lays the groundwork for innovative approaches in combating GAS infections, advocating for the continued integration of bioinformatics in vaccine development.
                     </p>
                 </div>
             </section>
