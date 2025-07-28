@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In Silico Vaccine Design for GAS | Rakesh Kumar A</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧬</text></svg>">
+
+    <style>
+        /* Use Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Smooth scrolling behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Simple animation for section headers */
+        .section-header {
+            transition: all 0.3s ease-in-out;
+        }
+        .section-header:hover {
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-gray-900">
+                <a href="#" class="hover:text-blue-600 transition-colors">GAS Vaccine Design</a>
+            </h1>
+            <nav class="hidden md:flex space-x-6 text-gray-600 font-medium">
+                <a href="#abstract" class="hover:text-blue-600 transition-colors">Abstract</a>
+                <a href="#methodology" class="hover:text-blue-600 transition-colors">Methodology</a>
+                <a href="#results" class="hover:text-blue-600 transition-colors">Results</a>
+                <a href="#conclusion" class="hover:text-blue-600 transition-colors">Conclusion</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12 md:py-16">
+
+        <!-- Hero Section -->
+        <section class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">🧬 Multi-Epitope Vaccine Design Against Group A Streptococcus (GAS)</h2>
+            <p class="text-lg text-gray-600 mb-6">This repository presents a comprehensive in silico pipeline for the design, structural validation, and immunological characterization of a multi-epitope vaccine candidate targeting Group A Streptococcus (GAS).</p>
+            <div class="text-center">
+                <p class="font-semibold text-gray-800">Author: Rakesh Kumar A</p>
+                <p class="text-sm text-gray-500">Department of Life Sciences, Garden City University, Bangalore, India</p>
+                <div class="mt-4 flex justify-center items-center space-x-4">
+                    <a href="https://github.com/Rakesh8050/Insilico-design-of-GAS-Vaccine" target="_blank" class="bg-gray-800 text-white font-semibold py-2 px-5 rounded-lg hover:bg-gray-900 transition-all shadow-md">
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Abstract Section -->
+        <section id="abstract" class="mb-16 bg-white p-8 rounded-xl shadow-sm border border-gray-200">
+            <h3 class="section-header text-2xl font-bold text-gray-900 mb-4">📄 Abstract</h3>
+            <p class="text-gray-700 leading-relaxed">
+                Group A Streptococcus (GAS) is a globally significant bacterial pathogen that causes a wide spectrum of diseases, yet no licensed vaccine is currently available. This project uses immunoinformatics, structural bioinformatics, and molecular simulation tools to construct and validate a multi-epitope vaccine targeting key GAS virulence factors. The final construct integrates:
+            </p>
+            <ul class="list-disc list-inside mt-4 space-y-2 text-gray-700">
+                <li><span class="font-semibold">Target Proteins:</span> M protein and FbaA protein (UniProt IDs: P12379.1, Q93R11)</li>
+                <li><span class="font-semibold">Epitopes:</span> T-cell and B-cell epitopes (MHC-I, MHC-II, Linear)</li>
+                <li><span class="font-semibold">Adjuvant:</span> 50S ribosomal protein L7/L12 to enhance immunogenicity</li>
+                <li><span class="font-semibold">Linkers:</span> EAAAK, AAY, and GPGPG to ensure proper separation and presentation of epitopes</li>
+            </ul>
+        </section>
+
+        <!-- Methodology Overview Section -->
+        <section id="methodology" class="mb-16">
+            <h3 class="section-header text-2xl font-bold text-gray-900 mb-6">🔬 Methodology Overview</h3>
+            <div class="overflow-x-auto bg-white rounded-xl shadow-sm border border-gray-200">
+                <table class="w-full text-left">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="p-4 font-semibold text-gray-700">Step</th>
+                            <th class="p-4 font-semibold text-gray-700">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 font-semibold">🎯 Target Protein</td>
+                            <td class="p-4 text-gray-600"><b>Accession:</b> P12379.1, Q93R11 (GAS M protein & FbaA protein). Retrieved from UniProt.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 font-semibold">🧩 Epitope Prediction</td>
+                            <td class="p-4 text-gray-600">MHC-I & MHC-II epitopes predicted using IEDB. Screened for immunogenicity, antigenicity, non-toxicity, and non-allergenicity.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 font-semibold">🧱 Vaccine Construction</td>
+                            <td class="p-4 text-gray-600">Sequence constructed using Adjuvant + CTL epitopes + HTL epitopes with appropriate linkers. Codon-optimized using JCat and cloned <i>in silico</i> into the pET28a(+) vector.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 font-semibold">⚗️ Bioinformatics Analysis</td>
+                            <td class="p-4 text-gray-600"><b>ProtParam:</b> Physicochemical properties. <br><b>PSIPRED:</b> Secondary structure. <br><b>Robetta:</b> Tertiary structure prediction. <br><b>MOLPROBITY:</b> Structural validation.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 font-semibold">🧬 Molecular Interactions</td>
+                            <td class="p-4 text-gray-600"><b>HADDOCK</b> docking with: <br> • TLR4 (innate immunity) <br> • MHC-I (CD8+ T cell response) <br> • MHC-II (CD4+ T helper cell activation)</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 font-semibold">🧪 Immune Simulation</td>
+                            <td class="p-4 text-gray-600"><b>C-ImmSim:</b> Predicted robust humoral and cellular responses, with increased memory T and B cells, key cytokines (IFN-γ), and antibody levels (IgM, IgG).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <!-- Final Construct Summary -->
+        <section class="mb-16">
+            <h3 class="section-header text-2xl font-bold text-gray-900 mb-6">🧪 Final Construct (Summary)</h3>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                    <p class="text-sm text-gray-500">Length</p>
+                    <p class="text-xl font-bold text-blue-600">601 aa</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                    <p class="text-sm text-gray-500">MW</p>
+                    <p class="text-xl font-bold text-blue-600">61.6 kDa</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                    <p class="text-sm text-gray-500">pI</p>
+                    <p class="text-xl font-bold text-blue-600">6.08</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                    <p class="text-sm text-gray-500">Stability</p>
+                    <p class="text-xl font-bold text-green-600">Stable</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 col-span-2 md:col-span-1">
+                    <p class="text-sm text-gray-500">GRAVY</p>
+                    <p class="text-xl font-bold text-green-600">Hydrophilic</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Results Section -->
+        <section id="results" class="mb-16">
+            <h3 class="section-header text-2xl font-bold text-gray-900 mb-6">📊 Key Results & Visuals</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Image Card 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <h4 class="font-semibold text-lg mb-3">Final Vaccine Construct</h4>
+                    <img src="https://storage.googleapis.com/gemini-prod/images/2024/07/22/0f1e8f2e-1b32-4752-b88a-2c8135832a2f.png" alt="Vaccine Construct Diagram" class="rounded-lg w-full h-auto object-contain" onerror="this.onerror=null;this.src='https://placehold.co/600x300/e2e8f0/334155?text=Image+Not+Found';">
+                    <p class="text-sm text-gray-600 mt-3">A chimeric protein designed with an adjuvant, CTL epitopes, and HTL epitopes joined by specific linkers.</p>
+                </div>
+                <!-- Image Card 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <h4 class="font-semibold text-lg mb-3">3D Structure & Validation</h4>
+                    <img src="https://storage.googleapis.com/gemini-prod/images/2024/07/22/9a444d47-7581-420a-9d6a-543328e352fe.png" alt="3D Structure and Ramachandran Plot" class="rounded-lg w-full h-auto object-contain" onerror="this.onerror=null;this.src='https://placehold.co/600x300/e2e8f0/334155?text=Image+Not+Found';">
+                    <p class="text-sm text-gray-600 mt-3">The tertiary structure of the vaccine was modeled and validated, with 94.16% of residues in the Ramachandran favored region.</p>
+                </div>
+                <!-- Image Card 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 md:col-span-2">
+                    <h4 class="font-semibold text-lg mb-3">Molecular Docking with Immune Receptors</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <figure>
+                            <img src="https://storage.googleapis.com/gemini-prod/images/2024/07/22/679d774d-9669-450f-901d-d5588383389a.png" alt="Docked with TLR-4" class="rounded-lg w-full h-auto object-contain" onerror="this.onerror=null;this.src='https://placehold.co/400x300/e2e8f0/334155?text=Image';">
+                            <figcaption class="text-center text-xs text-gray-500 mt-2">MEV docked with TLR-4</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="https://storage.googleapis.com/gemini-prod/images/2024/07/22/b5f36e84-1b15-4672-a162-811c0399f697.png" alt="Docked with MHC-I" class="rounded-lg w-full h-auto object-contain" onerror="this.onerror=null;this.src='https://placehold.co/400x300/e2e8f0/334155?text=Image';">
+                            <figcaption class="text-center text-xs text-gray-500 mt-2">MEV docked with MHC-I</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="https://storage.googleapis.com/gemini-prod/images/2024/07/22/06987f2b-7f3c-4113-9a3d-a5180f684c78.png" alt="Docked with MHC-II" class="rounded-lg w-full h-auto object-contain" onerror="this.onerror=null;this.src='https://placehold.co/400x300/e2e8f0/334155?text=Image';">
+                            <figcaption class="text-center text-xs text-gray-500 mt-2">MEV docked with MHC-II</figcaption>
+                        </figure>
+                    </div>
+                     <p class="text-sm text-gray-600 mt-3">The vaccine showed strong binding interactions with key immune receptors, suggesting effective immune system recognition.</p>
+                </div>
+                 <!-- Image Card 4 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <h4 class="font-semibold text-lg mb-3">Immune Simulation</h4>
+                    <img src="https://storage.googleapis.com/gemini-prod/images/2024/07/22/02684814-1e05-4c07-b673-0498064d7870.png" alt="Immune Simulation Results" class="rounded-lg w-full h-auto object-contain" onerror="this.onerror=null;this.src='https://placehold.co/600x300/e2e8f0/334155?text=Image+Not+Found';">
+                    <p class="text-sm text-gray-600 mt-3">Simulation predicted a robust immune response, with high levels of antibodies and memory cells.</p>
+                </div>
+                <!-- Image Card 5 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <h4 class="font-semibold text-lg mb-3">In Silico Cloning</h4>
+                    <img src="https://storage.googleapis.com/gemini-prod/images/2024/07/22/86d49557-238d-4760-b610-86c2e403d7c5.png" alt="Plasmid Map" class="rounded-lg w-full h-auto object-contain" onerror="this.onerror=null;this.src='https://placehold.co/600x300/e2e8f0/334155?text=Image+Not+Found';">
+                    <p class="text-sm text-gray-600 mt-3">The optimized gene was successfully cloned into the pET28a(+) vector, demonstrating production feasibility.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion Section -->
+        <section id="conclusion" class="bg-white p-8 rounded-xl shadow-sm border border-gray-200">
+            <h3 class="section-header text-2xl font-bold text-gray-900 mb-4">🔬 Conclusion & Future Scope</h3>
+            <p class="text-gray-700 leading-relaxed">
+                This project successfully designed a promising multi-epitope vaccine candidate against Group A Streptococcus using a robust <i>in silico</i> pipeline. The designed vaccine demonstrated excellent antigenic properties, structural stability, and the potential to elicit a strong, long-lasting immune response.
+            </p>
+            <p class="text-gray-700 leading-relaxed mt-4">
+                <b>Future work</b> would involve synthesizing the vaccine for <i>in vitro</i> and <i>in vivo</i> studies to experimentally validate its safety and efficacy in animal models, which is a critical next step toward clinical trials.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="container mx-auto px-6 py-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-semibold">Rakesh Kumar A</h3>
+                <p class="text-gray-400 mt-2">Bioinformatics | Computational Biology</p>
+                <div class="flex justify-center space-x-6 mt-4">
+                    <a href="mailto:1rakeshkumar098@gmail.com" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                    </a>
+                    <a href="https://linkedin.com/in/rakesh-kumar-96a1302a6" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"></path></svg>
+                    </a>
+                    <a href="https://github.com/Rakesh8050" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.65.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"></path></svg>
+                    </a>
+                </div>
+                <p class="text-xs text-gray-500 mt-8">&copy; 2025 Rakesh Kumar A. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
