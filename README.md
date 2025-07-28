@@ -1,4 +1,4 @@
-# Heading 1 🧬 Multi-Epitope Vaccine Design Against Group A Streptococcus (GAS)
+# 🧬 Multi-Epitope Vaccine Design Against Group A Streptococcus (GAS)
 
 The research paper is live at https://rakesh-kumar-a.github.io/Insilico-design-of-GAS-Vaccine/
 
