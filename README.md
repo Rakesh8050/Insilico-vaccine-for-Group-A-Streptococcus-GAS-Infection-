@@ -1,4 +1,4 @@
-In Silico Design of a Multi-Epitope Vaccine for Group A Streptococcus (GAS)
+#In Silico Design of a Multi-Epitope Vaccine for Group A Streptococcus (GAS)
 📖 Overview
 This project details a comprehensive in silico approach to designing a novel multi-epitope vaccine (MEV) against Group A Streptococcus (GAS), the bacterium responsible for a wide range of human diseases, from common strep throat to life-threatening conditions like necrotizing fasciitis and streptococcal toxic shock syndrome (STSS). Given the significant global health burden of GAS and the current lack of an effective vaccine, this research leverages bioinformatics and immunoinformatics tools to develop a promising vaccine candidate.
 
