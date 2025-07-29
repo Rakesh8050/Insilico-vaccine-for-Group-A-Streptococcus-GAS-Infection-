@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>In Silico Design of a Vaccine for Group A Streptococcus | Rakesh Kumar A</title>
+    <title>An In Silico Approach for Designing a Multi-Epitope Vaccine for Group A Streptococcus (GAS) Infection | Rakesh Kumar A</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500;700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Roboto:wght@300;400;500;700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧬</text></svg>">
-
     <style>
         :root {
             --primary-color: #0d47a1; /* A deep, academic blue */
@@ -20,55 +18,56 @@
             --text-color: #212529;
             --light-gray: #e9ecef;
             --medium-gray: #ced4da;
+            --dark-gray: #6C757D;
         }
-        
+
         body {
             font-family: 'Source Serif Pro', Georgia, serif;
             background-color: var(--background-color);
             color: var(--text-color);
-            line-height: 1.7;
+            line-height: 1.6;
         }
-        
+
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Merriweather', Georgia, serif;
             color: var(--primary-color);
-            font-weight: 700;
         }
-        
+
         .journal-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 20px;
         }
-        
+
         .journal-header {
             text-align: center;
-            padding: 3rem 0;
+            padding: 40px 0;
             border-bottom: 1px solid var(--medium-gray);
-            margin-bottom: 2rem;
+            margin-bottom: 30px;
         }
-        
+
         .journal-title {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 15px;
+            font-weight: 700;
         }
-        
+
         .authors {
             font-size: 1.1rem;
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
+            color: var(--dark-gray);
+            margin-bottom: 20px;
         }
-        
+
         .affiliation {
-            font-size: 1rem;
-            color: var(--secondary-color);
+            font-size: 0.9rem;
+            color: var(--dark-gray);
             font-style: italic;
+            margin-bottom: 15px;
         }
-        
-        /* Two-column layout for specific sections */
+
         .two-column {
             column-count: 2;
-            column-gap: 2.5rem;
+            column-gap: 40px;
             text-align: justify;
         }
 
@@ -77,99 +76,132 @@
                 column-count: 1;
             }
         }
-        
+
         .full-width {
             column-span: all;
         }
-        
+
         .section-title {
-            font-size: 1.75rem;
-            margin: 3rem 0 1.5rem;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.5rem;
+            font-size: 1.5rem;
+            margin: 30px 0 15px;
             column-span: all;
+            border-bottom: 1px solid var(--primary-color);
+            padding-bottom: 8px;
         }
-        
+
         .subsection-title {
             font-size: 1.25rem;
-            margin: 1.5rem 0 1rem;
+            margin: 24px 0 12px;
             font-weight: 600;
             color: #343a40;
             break-after: avoid;
             break-inside: avoid;
         }
-        
+
         .figure {
-            margin: 2rem 0;
+            margin: 30px 0;
+            break-inside: avoid;
             background: white;
             padding: 1.5rem;
             border-radius: 0.5rem;
             border: 1px solid var(--light-gray);
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            break-inside: avoid;
         }
-        
+
         .figure-caption {
             font-size: 0.9rem;
             color: var(--secondary-color);
-            margin-top: 1rem;
+            margin-top: 10px;
             text-align: left;
             line-height: 1.5;
         }
-        
+
         .figure-number, .table-number {
             font-weight: 700;
             color: var(--primary-color);
         }
 
+        .table-container {
+            margin: 20px 0;
+            overflow-x: auto;
+            break-inside: avoid;
+        }
+
         .journal-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 1.5rem 0;
+            margin: 20px 0;
             font-size: 0.9rem;
-        }
-        
-        .journal-table th {
-            background-color: #f1f3f5;
-            text-align: left;
-            padding: 0.75rem;
-            font-weight: 600;
-        }
-        
-        .journal-table td {
-            padding: 0.75rem;
-            border-bottom: 1px solid var(--light-gray);
         }
 
-        .references ol { /* Target the ordered list within references */
-            padding-left: 1.5rem; /* Indent the list items */
-            text-indent: -1.5rem; /* Pull back the number */
+        .journal-table th {
+            background-color: var(--light-gray);
+            text-align: left;
+            padding: 12px;
+            font-weight: 600;
+        }
+
+        .journal-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .references ol {
+            padding-left: 1.5rem;
+            text-indent: -1.5rem;
             font-size: 0.9rem;
             line-height: 1.6;
-            column-count: 1; /* Ensure references are single column */
+            column-count: 1;
             column-gap: normal;
         }
-        
+
         .reference-item {
             margin-bottom: 1rem;
         }
 
         .nav-link {
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             border-bottom: 2px solid transparent;
             font-family: 'Roboto', sans-serif;
             padding-bottom: 0.25rem;
         }
-        
+
         .nav-link.active, .nav-link:hover {
             color: var(--accent-color);
             border-bottom-color: var(--accent-color);
         }
 
-        /* Custom class for smaller images, next to each other */
-        .md-sim-image {
-            /* This class is primarily a marker. Sizing is handled by w-full sm:w-1/2 */
-            /* and the flex container it's within. */
+        .md-sim-image, .immune-sim-image {
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .md-sim-image:hover, .immune-sim-image:hover {
+            transform: scale(1.03);
+        }
+
+        .md-sim-caption, .immune-sim-caption {
+            font-size: 0.875rem;
+            color: var(--dark-gray);
+            text-align: center;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .tooltip {
+            position: absolute;
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
         }
     </style>
 </head>
@@ -180,7 +212,7 @@
             <div class="authors">Rakesh Kumar A<sup>1</sup></div>
             <div class="affiliation"><sup>1</sup>Department of Life Sciences, Garden City University, Bangalore, India</div>
         </header>
-        
+
         <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-md py-3 px-6 mb-8 rounded-lg">
             <div class="hidden md:flex justify-center items-center space-x-8">
                 <a href="#abstract" class="nav-link font-medium text-gray-600">Abstract</a>
@@ -226,7 +258,7 @@
                     </p>
                 </div>
             </section>
-            
+
             <section id="keywords-list">
                 <h2 class="subsection-title">Keywords</h2>
                 <p><i>Streptococcus pyogenes</i>, Multi-Epitope Vaccine, Epitope Prediction, Molecular Docking, Immune Simulation, Vaccine Construct, TLR4, MHC</p>
@@ -254,16 +286,17 @@
                     </p>
                 </div>
                 <p>
-                    <br>This study aims to design a multi-epitope subunit vaccine using in silico bioinformatics tools, integrating advanced computational techniques for epitope prediction, vaccine construct design, structural modeling, molecular docking, immune simulation, and codon optimization, to propose a robust and effective vaccine candidate against Group A Streptococcus.</p>
-                
+                    <br>This study aims to design a multi-epitope subunit vaccine using in silico bioinformatics tools, integrating advanced computational techniques for epitope prediction, vaccine construct design, structural modeling, molecular docking, immune simulation, and codon optimization, to propose a robust and effective vaccine candidate against Group A Streptococcus.
+                </p>
+
                 <div class="figure full-width">
                     <div class="flex flex-wrap justify-center items-start gap-4">
                         <div class="flex-1 min-w-[300px] max-w-[48%]">
-                            <img src="images/figure1a.png" onerror="this.onerror=null;this.src='https://placehold.co/400x225/A0B0C0/FFFFFF?text=Figure+1a';" alt="Figure 1a: Multiple sequence alignment of the protein sequences by Clustal Omega" class="rounded-lg w-full h-auto object-contain border mx-auto md-sim-image">
+                            <img src="images/figure1a.png" onerror="this.onerror=null;this.src='https://placehold.co/400x225/A0B0C0/FFFFFF?text=Figure+1a';" alt="Multiple sequence alignment of the protein sequences by Clustal Omega" class="rounded-lg w-full h-auto object-contain border mx-auto md-sim-image">
                             <p class="figure-caption"><span class="figure-number">Figure1a.</span> Multiple sequence alignment of the protein sequences by clustal omega.</p>
                         </div>
                         <div class="flex-1 min-w-[300px] max-w-[48%]">
-                            <img src="images/figure1b.png" onerror="this.onerror=null;this.src='https://placehold.co/400x225/A0B0C0/FFFFFF?text=Figure+1b';" alt="Figure 1b: Phylogram of the protein sequences by Clustal Omega" class="rounded-lg w-full h-auto object-contain border mx-auto md-sim-image">
+                            <img src="images/figure1b.png" onerror="this.onerror=null;this.src='https://placehold.co/400x225/A0B0C0/FFFFFF?text=Figure+1b';" alt="Phylogram of the protein sequences by Clustal Omega" class="rounded-lg w-full h-auto object-contain border mx-auto md-sim-image">
                             <p class="figure-caption"><span class="figure-number">Figure1b.</span> Phylogram of the protein sequences by clustal omega.</p>
                         </div>
                     </div>
@@ -279,7 +312,6 @@
 
             <section id="methods">
                 <h2 class="section-title">3. Methodology</h2>
-                <!-- Removed two-column from here -->
                 <h3 class="subsection-title">3.1. Sequence Retrieval</h3>
                 <p class="mb-4">
                     The amino acid sequences of the outer membrane protein were retrieved from the UniProt database using UniProt IDs P12379.1 and Q93RI1. These sequences served as the foundation for subsequent analyses, providing the necessary protein data for epitope prediction and vaccine design.
@@ -294,7 +326,7 @@
                 <p class="mb-4">
                     Immunogenicity screening of Cytotoxic T Lymphocyte (CTL) and Helper T Lymphocyte (HTL) epitopes was conducted using the Immune Epitope Database (IEDB) server. The outer membrane protein sequence was submitted to the IEDB server to predict MHC-I and MHC-II binding epitopes. Each predicted epitope consisted of 9-mer residue sequences, evaluated based on their antigenic and immunogenic scores. Epitopes were selected based on several criteria: antigenicity, non-toxicity, non-allergenicity, and interferon-gamma (IFN-$\gamma$) inducing potential. Collectively, 13 MHC-I and 12 MHC-II epitopes were prioritized for the vaccine construct due to these favorable immunological properties.
                 </p>
-                
+
                 <h3 class="subsection-title">3.4. Immunogenicity Analysis</h3>
                 <p class="mb-4">
                     Predicted CTL and HTL epitopes were further shortlisted by applying multiple immunological filters. Allergenicity was predicted using AllerTOP2.0. Antigenicity was determined using the VaxiJen v2.0 server with a threshold above 0.4. Toxicity was evaluated using the ToxinPred server. The IFNepitope webserver was used to predict epitopes that can induce interferon-gamma, and IFN-γ positive epitopes were selected.
@@ -309,22 +341,22 @@
                 <p class="mb-4">
                     Physicochemical properties were investigated using the ProtParam tool. The SOLUPROT server predicted solubility. The secondary structure was determined using the PSIPRED online server. The 3D structure was predicted using the Robetta server and validated using MOLPROBITY. To evaluate binding affinity, the MEV was docked with TLR4, MHC-I, and MHC-II using the HADDOCK v.2.2 online web server.
                 </p>
-                
+
                 <h3 class="subsection-title">3.7. In Silico Immune Simulation and Cloning</h3>
                 <p class="mb-4">
                     An in silico immune simulation was performed using the C-ImmSim server to validate the immunological response of the constructed MEV. For expression, the Java Codon Adaptation Tool (JCAT) server was used for MEV codon optimization for the <i>E. coli</i> K12 system. Finally, the SnapGene tool was used to clone the optimized sequence into the expression vector pET28a(+).
                 </p>
             </section>
-            
+
             <section id="results">
                 <h2 class="section-title full-width">4. Results</h2>
-                
+
                 <h3 class="subsection-title full-width">4.1. Immunogenicity Screening of Epitopes</h3>
                 <p class="mb-4 text-justify">
                     The target proteins were submitted to the IEDB server, which predicted numerous CTL and HTL epitopes. These were assessed for their immunological properties. Collectively, 13 MHC-I and 12 MHC-II epitopes were selected for the vaccine construct based on their high antigenicity, non-toxicity, non-allergenicity, and ability to induce interferon-gamma.
                 </p>
 
-                <div class="figure full-width">
+                <div class="figure full-width table-container">
                     <h4 class="table-number">Table 1. Selected MHC-I and MHC-II Epitopes</h4>
                     <div class="overflow-x-auto">
                         <table class="journal-table">
@@ -355,15 +387,15 @@
                     The final multi-epitope vaccine construct is a 601 amino acid chimeric protein. The physicochemical analysis predicted a molecular weight of 61.6 kDa and a theoretical pI of 6.08. The instability index was calculated to be 31.72, classifying the protein as stable. The aliphatic index of 62.33 suggests good thermostability, and the negative GRAVY score of -0.428 indicates that the protein is hydrophilic and likely to be soluble (solubility score of 0.884).
                 </p>
                 <div class="figure full-width">
-                    <img src="images/figure2.1.png" alt="Vaccine Construct Diagram" class="w-full h-auto rounded md-sim-image">
+                    <img src="images/figure2.1.png" alt="Schematic of the final multi-epitope vaccine construct." class="w-full h-auto rounded md-sim-image">
                     <p class="figure-caption"><span class="figure-number">Figure2.1.</span> Schematic of the final multi-epitope vaccine construct.</p>
                 </div>
                 <div class="figure full-width">
-                    <img src="images/figure2.2.png" alt="Solubility score of the vaccine construct in E.Coli by SOLUprot" class="w-full h-auto rounded md-sim-image">
+                    <img src="images/figure2.2.png" alt="Solubility score of the vaccine construct in E.Coli by SOLUprot." class="w-full h-auto rounded md-sim-image">
                     <p class="figure-caption"><span class="figure-number">Figure2.2.</span> Solubility score of the vaccine construct in E.Coli by SOLUprot.</p>
                 </div>
-                <div class="figure full-width">
-                    <h4 class="table-number">Table 2. Physiochemical properties of the vaccine construct by protparam.</h4>
+                <div class="figure full-width table-container">
+                    <h4 class="table-number">Table 2. Physicochemical properties of the vaccine construct by protparam.</h4>
                     <div class="overflow-x-auto">
                         <table class="journal-table">
                             <thead>
@@ -390,15 +422,15 @@
                     The 3D model of the vaccine was validated using MOLPROBITY. The Ramachandran plot analysis showed that 94.16% of the amino acid residues were in the most favored regions, indicating a high-quality, stereochemically favorable protein structure. The secondary structure was determined using the PSIPRED online server, revealing the distribution of helices, strands, and coils.
                 </p>
                 <div class="figure full-width">
-                    <img src="images/figure3.1.png" alt="3D Structure and Ramachandran Plot" class="rounded-lg w-full h-auto object-contain border mx-auto">
+                    <img src="images/figure3.1.png" alt="The predicted tertiary structure of the vaccine construct (right) and its corresponding Ramachandran plot (left)." class="rounded-lg w-full h-auto object-contain border mx-auto md-sim-image">
                     <p class="figure-caption"><span class="figure-number">Figure3.1.</span> The predicted tertiary structure of the vaccine construct (right) and its corresponding Ramachandran plot (left).</p>
                 </div>
                 <div class="figure full-width">
-                    <img src="images/figure3.2a.png" alt="Secondary structure prediction of the Vaccine construct by PSI-PRED." class="rounded-lg w-full h-auto object-contain border mx-auto">
+                    <img src="images/figure3.2a.png" alt="Secondary structure prediction of the Vaccine construct by PSI-PRED." class="rounded-lg w-full h-auto object-contain border mx-auto md-sim-image">
                     <p class="figure-caption"><span class="figure-number">Figure3.2a.</span> Secondary structure prediction of the Vaccine construct by PSI-PRED.</p>
                 </div>
                 <div class="figure full-width">
-                    <img src="images/figure3.2b.png" alt="Secondary structure prediction cartoonic representation of the Vaccine construct by PSI-PRED." class="rounded-lg w-full h-auto object-contain border mx-auto">
+                    <img src="images/figure3.2b.png" alt="Secondary structure prediction cartoonic representation of the Vaccine construct by PSI-PRED." class="rounded-lg w-full h-auto object-contain border mx-auto md-sim-image">
                     <p class="figure-caption"><span class="figure-number">Figure3.2b.</span> Secondary structure prediction cartoonic representation of the Vaccine construct by PSI-PRED.</p>
                 </div>
 
@@ -409,15 +441,15 @@
                 <div class="figure full-width">
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <div class="text-center">
-                            <img src="images/figure4_1a.png" onerror="this.onerror=null;this.src='https://i.imgur.com/gO1fW6K.png';" alt="Molecular docking complex of MEV with TLR-4 (Chimera visualization)" class="rounded-lg w-full h-auto object-contain border mx-auto">
+                            <img src="images/figure4_1a.png" onerror="this.onerror=null;this.src='https://i.imgur.com/gO1fW6K.png';" alt="Molecular docking complex of MEV with TLR-4 (Chimera visualization)." class="rounded-lg w-full h-auto object-contain border mx-auto md-sim-image">
                             <p class="figure-caption"><span class="figure-number">Figure4.1a.</span> Molecular docking complex of MEV with TLR-4 (Chimera visualization).</p>
                         </div>
                         <div class="text-center">
-                            <img src="images/figure4_1b.png" onerror="this.onerror=null;this.src='https://i.imgur.com/J8n8h7w.png';" alt="Molecular docking complex of MEV with MHC-I (Chimera visualization)" class="rounded-lg w-full h-auto object-contain border mx-auto">
+                            <img src="images/figure4_1b.png" onerror="this.onerror=null;this.src='https://i.imgur.com/J8n8h7w.png';" alt="Molecular docking complex of MEV with MHC-I (Chimera visualization)." class="rounded-lg w-full h-auto object-contain border mx-auto md-sim-image">
                             <p class="figure-caption"><span class="figure-number">Figure4.1b.</span> Molecular docking complex of MEV with MHC-I (Chimera visualization).</p>
                         </div>
                         <div class="text-center">
-                            <img src="images/figure4_1c.png" onerror="this.onerror=null;this.src='https://i.imgur.com/s6E7g4Q.png';" alt="Molecular docking complex of MEV with MHC-II (Chimera visualization)" class="rounded-lg w-full h-auto object-contain border mx-auto">
+                            <img src="images/figure4_1c.png" onerror="this.onerror=null;this.src='https://i.imgur.com/s6E7g4Q.png';" alt="Molecular docking complex of MEV with MHC-II (Chimera visualization)." class="rounded-lg w-full h-auto object-contain border mx-auto md-sim-image">
                             <p class="figure-caption"><span class="figure-number">Figure4.1c.</span> Molecular docking complex of MEV with MHC-II (Chimera visualization).</p>
                         </div>
                     </div>
@@ -425,15 +457,15 @@
                 <div class="figure full-width">
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <div class="text-center">
-                            <img src="images/figure4_2a.png" onerror="this.onerror=null;this.src='https://placehold.co/400x300/A0B0C0/FFFFFF?text=Figure+4.2a:+MEV-TLR4+PDBsum';" alt="Protein-protein interaction map for MEV with TLR4 from PDBsum" class="rounded-lg w-full h-auto object-contain border mx-auto">
+                            <img src="images/figure4_2a.png" onerror="this.onerror=null;this.src='https://placehold.co/400x300/A0B0C0/FFFFFF?text=Figure+4.2a:+MEV-TLR4+PDBsum';" alt="Protein-protein interaction map for MEV with TLR4 from PDBsum." class="rounded-lg w-full h-auto object-contain border mx-auto md-sim-image">
                             <p class="figure-caption"><span class="figure-number">Figure4.2a.</span> Protein-protein interaction map for MEV with TLR4 from PDBsum.</p>
                         </div>
                         <div class="text-center">
-                            <img src="images/figure4_2b.png" onerror="this.onerror=null;this.src='https://placehold.co/400x300/A0B0C0/FFFFFF?text=Figure+4.2b:+MEV-MHC-1+PDBsum';" alt="Protein-protein interaction between MEV and MHC-1 from PDBsum." class="rounded-lg w-full h-auto object-contain border mx-auto">
+                            <img src="images/figure4_2b.png" onerror="this.onerror=null;this.src='https://placehold.co/400x300/A0B0C0/FFFFFF?text=Figure+4.2b:+MEV-MHC-1+PDBsum';" alt="Protein-protein interaction between MEV and MHC-1 from PDBsum." class="rounded-lg w-full h-auto object-contain border mx-auto md-sim-image">
                             <p class="figure-caption"><span class="figure-number">Figure4.2b.</span> Protein-protein interaction map for MEV with MHC-I from PDBsum.</p>
                         </div>
                         <div class="text-center">
-                            <img src="images/figure4_2c.png" onerror="this.onerror=null;this.src='https://placehold.co/400x300/A0B0C0/FFFFFF?text=Figure+4.2c:+MEV-MHC-2+PDBsum';" alt="Protein-protein interaction between MEV and MHC-2 from PDBsum." class="rounded-lg w-full h-auto object-contain border mx-auto">
+                            <img src="images/figure4_2c.png" onerror="this.onerror=null;this.src='https://placehold.co/400x300/A0B0C0/FFFFFF?text=Figure+4.2c:+MEV-MHC-2+PDBsum';" alt="Protein-protein interaction between MEV and MHC-2 from PDBsum." class="rounded-lg w-full h-auto object-contain border mx-auto md-sim-image">
                             <p class="figure-caption"><span class="figure-number">Figure4.2c.</span> Protein-protein interaction map for MEV with MHC-II from PDBsum.</p>
                         </div>
                     </div>
@@ -444,26 +476,26 @@
                     The C-ImmSim server predicted a robust immune response, with a steady rise in immunoglobulins (IgG1+IgM, IgG+IgM) and activation of B-cells, helper T-cells, and cytotoxic T-cells. This reflects the vaccine's capacity to create a high secondary immune response and healthy immune memory. The optimized MEV construct contained 2061 nucleotides with an ideal GC content of 51.30% and a CAI value of 1.0, and was successfully cloned into the pET28a(+) vector.
                 </p>
                 <div class="figure full-width">
-                    <img src="images/figure5_1.png" onerror="this.onerror=null;this.src='https://i.imgur.com/uR3C0tM.png';" alt="Immune Simulation Results" class="rounded-lg w-full h-auto object-contain border mx-auto">
+                    <img src="images/figure5_1.png" onerror="this.onerror=null;this.src='https://i.imgur.com/uR3C0tM.png';" alt="Predicted immune response from the C-ImmSim server (Antibody titers and Cytokine production)." class="rounded-lg w-full h-auto object-contain border mx-auto immune-sim-image">
                     <p class="figure-caption"><span class="figure-number">Figure5.1.</span> Predicted immune response from the C-ImmSim server (Antibody titers and Cytokine production).</p>
                 </div>
                 <div class="figure full-width">
-                    <img src="images/figure5_2.png" onerror="this.onerror=null;this.src='https://placehold.co/800x450/A0B0C0/FFFFFF?text=Figure+5.2:+Immune+Cell+Populations';" alt="Immune simulation of vaccine construct by C-ImmSimm (Cell Populations)" class="rounded-lg w-full h-auto object-contain border mx-auto">
+                    <img src="images/figure5_2.png" onerror="this.onerror=null;this.src='https://placehold.co/800x450/A0B0C0/FFFFFF?text=Figure+5.2:+Immune+Cell+Populations';" alt="Immune simulation of vaccine construct by C-ImmSimm (Various Immune Cell Populations)." class="rounded-lg w-full h-auto object-contain border mx-auto immune-sim-image">
                     <p class="figure-caption"><span class="figure-number">Figure5.2.</span> Immune simulation of vaccine construct by C-ImmSimm (Various Immune Cell Populations).</p>
                 </div>
                 <div class="figure full-width">
-                    <img src="images/figure6_1.png" onerror="this.onerror=null;this.src='https://placehold.co/800x450/A0B0C0/FFFFFF?text=Figure+6.1:+Codon+Optimization+Map';" alt="Forward and reverse primers attached to the reverse translated vaccine construct by snapgene" class="rounded-lg w-full h-auto object-contain border mx-auto">
+                    <img src="images/figure6_1.png" onerror="this.onerror=null;this.src='https://placehold.co/800x450/A0B0C0/FFFFFF?text=Figure+6.1:+Codon+Optimization+Map';" alt="Forward and reverse primers attached to the reverse translated vaccine construct by SnapGene (Codon Optimization Map)." class="rounded-lg w-full h-auto object-contain border mx-auto md-sim-image">
                     <p class="figure-caption"><span class="figure-number">Figure6.1.</span> Forward and reverse primers attached to the reverse translated vaccine construct by SnapGene (Codon Optimization Map).</p>
                 </div>
                 <div class="figure full-width">
-                    <img src="images/figure6_2.png" onerror="this.onerror=null;this.src='https://i.imgur.com/k2jJv4h.png';" alt="Plasmid Map" class="rounded-lg w-full h-auto object-contain border mx-auto">
+                    <img src="images/figure6_2.png" onerror="this.onerror=null;this.src='https://i.imgur.com/k2jJv4h.png';" alt="Recombinant plasmid map showing the optimized vaccine gene cloned into the pET28a(+) vector." class="rounded-lg w-full h-auto object-contain border mx-auto md-sim-image">
                     <p class="figure-caption"><span class="figure-number">Figure6.2.</span> Recombinant plasmid map showing the optimized vaccine gene cloned into the pET28a(+) vector.</p>
                 </div>
             </section>
-            
+
             <section id="discussion">
                 <h2 class="section-title full-width">5. Discussion</h2>
-                <div class="two-column"> <!-- This div creates the two-column layout for the discussion -->
+                <div class="two-column">
                     <p class="mb-4">
                         The in silico design of a multi-epitope vaccine against Group A Streptococcus (GAS) presented in this study demonstrates a promising strategy for combating this pervasive pathogen. The selection of outer membrane proteins as vaccine targets is strategically sound, given their surface accessibility and conserved nature, which is critical for inducing broad-spectrum immunity against diverse GAS strains. The high conservation observed in the multiple sequence alignment (Figure1a) substantiates the choice of these proteins, suggesting that epitopes derived from them would likely elicit a protective response across various GAS genotypes.
                     </p>
@@ -490,7 +522,7 @@
                     </p>
                 </div>
             </section>
-            
+
             <section id="conclusion">
                 <h2 class="section-title full-width">6. Conclusion</h2>
                 <p>
@@ -530,6 +562,19 @@
         </main>
     </div>
 
+    <div id="md-sim-modal" class="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 hidden">
+        <div class="max-w-4xl w-full bg-white rounded-lg overflow-hidden shadow-xl relative">
+            <button id="md-sim-modal-close" class="absolute top-2 right-3 text-gray-400 hover:text-gray-600 text-2xl font-bold z-10">&times;</button>
+            <button id="md-sim-modal-prev" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center text-2xl transition-all z-10">&lt;</button>
+            <button id="md-sim-modal-next" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center text-2xl transition-all z-10">&gt;</button>
+            <div class="p-4">
+                <h3 id="md-sim-modal-title" class="text-xl font-bold text-center mb-2"></h3>
+                <img id="md-sim-modal-img" src="" alt="Image in modal" class="w-full h-auto">
+                <div id="md-sim-modal-description" class="text-gray-700 text-center mt-5 mb-2 max-w-3xl mx-auto"></div>
+            </div>
+        </div>
+    </div>
+
     <script>
         document.getElementById('mobile-nav').addEventListener('change', function(e) {
             const section = document.querySelector(e.target.value);
@@ -550,6 +595,198 @@
             });
         }, { rootMargin: '-50% 0px -50% 0px' });
         sections.forEach(section => observer.observe(section));
+
+        // --- Image Modal Logic ---
+        const modal = document.getElementById('md-sim-modal');
+        const modalClose = document.getElementById('md-sim-modal-close');
+        const modalImg = document.getElementById('md-sim-modal-img');
+        const modalTitle = document.getElementById('md-sim-modal-title');
+        const modalDescription = document.getElementById('md-sim-modal-description');
+
+        // Add click event to all relevant images (using the classes from your original code)
+        document.querySelectorAll('.md-sim-image, .immune-sim-image').forEach(img => {
+            img.addEventListener('click', function() {
+                modalImg.src = this.src;
+                modalTitle.textContent = this.alt;
+
+                // Dynamically set detailed descriptions based on image alt text or nearby caption
+                const captionElement = this.nextElementSibling; // Assuming caption is immediately after image
+                if (captionElement && captionElement.classList.contains('figure-caption')) {
+                    const captionText = captionElement.textContent;
+                    let detailedDescription = "";
+
+                    if (this.alt.includes("Multiple sequence alignment")) {
+                        detailedDescription = `<strong>Multiple Sequence Alignment (MSA):</strong> This figure displays the alignment of amino acid sequences from the selected proteins using CLUSTAL 0(1.2.4). Asterisks indicate identical residues, showing high conservation crucial for selecting effective epitopes that are common across different strains.`;
+                    } else if (this.alt.includes("Phylogram")) {
+                        detailedDescription = `<strong>Phylogenetic Tree:</strong> The phylogram visualizes the evolutionary relationships between the protein sequences used for vaccine design. It helps confirm the genetic diversity and relatedness, ensuring selected epitopes are broadly applicable.`;
+                    } else if (this.alt.includes("Schematic of the final multi-epitope vaccine construct")) {
+                        detailedDescription = `<strong>Vaccine Construct Schematic:</strong> This diagram illustrates the arrangement of different components in the multi-epitope vaccine. It shows the adjuvant at the N-terminus, followed by CTL and HTL epitopes connected by specific linkers (EAAAK, AAY, GPGPG).`;
+                    } else if (this.alt.includes("Solubility score")) {
+                        detailedDescription = `<strong>Solubility Prediction:</strong> This score, predicted by SOLUprot, indicates the likelihood of the vaccine construct being soluble in <i>E. coli</i>. A score of 0.884 suggests good solubility, which is vital for efficient expression and purification in a recombinant system.`;
+                    } else if (this.alt.includes("tertiary structure") && this.alt.includes("Ramachandran plot")) {
+                        detailedDescription = `<strong>3D Structure and Ramachandran Plot:</strong> The image on the right shows the predicted 3D structure of the vaccine. The Ramachandran plot on the left validates its stereochemical quality: 94.16% of residues in favored regions indicates a well-folded, stable protein, crucial for correct epitope presentation.`;
+                    } else if (this.alt.includes("Secondary structure prediction of the Vaccine construct by PSI-PRED.")) {
+                        detailedDescription = `<strong>Secondary Structure Prediction:</strong> This image from PSIPRED shows the predicted secondary structure elements of the vaccine construct, including alpha helices, beta strands, and coils. This prediction helps understand the protein's overall folding and stability.`;
+                    } else if (this.alt.includes("Secondary structure prediction cartoonic representation of the Vaccine construct by PSI-PRED.")) {
+                        detailedDescription = `<strong>Cartoon Representation of Secondary Structure:</strong> This provides a visual interpretation of the PSIPRED secondary structure prediction, showing the arrangement of helices, strands, and loops, which contributes to the overall stability and function of the vaccine protein.`;
+                    } else if (this.alt.includes("Molecular docking complex of MEV with TLR-4")) {
+                        detailedDescription = `<strong>Molecular Docking: MEV with TLR4:</strong> This visualization (Chimera) shows the binding interaction between the multi-epitope vaccine (MEV) and Toll-like receptor 4 (TLR4). Strong binding to TLR4 is important for initiating an effective innate immune response.`;
+                    } else if (this.alt.includes("Molecular docking complex of MEV with MHC-I")) {
+                        detailedDescription = `<strong>Molecular Docking: MEV with MHC-I:</strong> This image depicts the interaction between the MEV and Major Histocompatibility Complex Class I (MHC-I). Effective binding here is crucial for the presentation of cytotoxic T lymphocyte (CTL) epitopes and activation of CD8+ T cells.`;
+                    } else if (this.alt.includes("Molecular docking complex of MEV with MHC-II")) {
+                        detailedDescription = `<strong>Molecular Docking: MEV with MHC-II:</strong> This visual represents the interaction between the MEV and Major Histocompatibility Complex Class II (MHC-II). Strong binding ensures efficient presentation of helper T lymphocyte (HTL) epitopes and activation of CD4+ T cells.`;
+                    } else if (this.alt.includes("Protein-protein interaction map for MEV with TLR4 from PDBsum")) {
+                        detailedDescription = `<strong>Protein-Protein Interaction: MEV-TLR4:</strong> This map from PDBsum details the specific residue-level interactions (non-bonded contacts, hydrogen bonds, salt bridges) between the vaccine and TLR4, validating the strong binding observed in docking simulations.`;
+                    } else if (this.alt.includes("Protein-protein interaction between MEV and MHC-1 from PDBsum")) {
+                        detailedDescription = `<strong>Protein-Protein Interaction: MEV-MHC-I:</strong> This PDBsum map shows the intricate network of interactions between the vaccine's epitopes and MHC-I, confirming the molecular basis for effective antigen presentation to CD8+ T cells.`;
+                    } else if (this.alt.includes("Protein-protein interaction between MEV and MHC-2 from PDBsum")) {
+                        detailedDescription = `<strong>Protein-Protein Interaction: MEV-MHC-II:</strong> This map from PDBsum illustrates the specific binding residues and interaction types between the vaccine and MHC-II, demonstrating the molecular fit for stimulating CD4+ T cells.`;
+                    } else if (this.alt.includes("Predicted immune response from the C-ImmSim server (Antibody titers and Cytokine production).")) {
+                        detailedDescription = `<strong>Immune Simulation: Antibody and Cytokine Production:</strong> This chart from C-ImmSim predicts the overall antibody titers (IgG1+IgM, IgG+IgM) and the dynamics of key cytokine production (IFN-γ, IL-23, IL-10, IFN-$\beta$) over time, indicating a robust and balanced humoral and cellular immune response.`;
+                    } else if (this.alt.includes("Immune simulation of vaccine construct by C-ImmSimm (Various Immune Cell Populations).")) {
+                        detailedDescription = `<strong>Immune Simulation: Immune Cell Populations:</strong> This graph shows the predicted changes in various immune cell populations (B cells, helper T cells, cytotoxic T cells, dendritic cells, macrophages) over time after vaccination, highlighting the activation and proliferation of critical immune components.`;
+                    } else if (this.alt.includes("Forward and reverse primers attached to the reverse translated vaccine construct by SnapGene (Codon Optimization Map).")) {
+                        detailedDescription = `<strong>Codon Optimization Map and Primers:</strong> This visualization from SnapGene shows the codon-optimized nucleotide sequence of the vaccine construct, including the forward and reverse primers. Optimization ensures high expression efficiency in <i>E. coli</i>.`;
+                    } else if (this.alt.includes("Recombinant plasmid map showing the optimized vaccine gene cloned into the pET28a(+) vector.")) {
+                        detailedDescription = `<strong>Recombinant Plasmid Map:</strong> This diagram shows the pET28a(+) expression vector with the codon-optimized vaccine gene successfully cloned into it. This map guides experimental cloning and protein expression in <i>E. coli</i>.`;
+                    } else {
+                        // Fallback to general caption if no specific detail is found
+                        detailedDescription = captionText;
+                    }
+                    modalDescription.innerHTML = detailedDescription;
+                } else {
+                    modalDescription.textContent = "No detailed description available for this image.";
+                }
+
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close modal on button click
+        modalClose.addEventListener('click', function() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+
+        // Close modal on outside click
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close modal on escape key and add arrow key navigation
+        document.addEventListener('keydown', function(e) {
+            if (modal.classList.contains('hidden')) return;
+
+            if (e.key === 'Escape') {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            } else if (e.key === 'ArrowRight') {
+                navigateModal('next');
+            } else if (e.key === 'ArrowLeft') {
+                navigateModal('prev');
+            }
+        });
+
+        // Navigation buttons
+        const prevButton = document.getElementById('md-sim-modal-prev');
+        const nextButton = document.getElementById('md-sim-modal-next');
+
+        prevButton.addEventListener('click', function() {
+            navigateModal('prev');
+        });
+
+        nextButton.addEventListener('click', function() {
+            navigateModal('next');
+        });
+
+        function navigateModal(direction) {
+            const allImages = Array.from(document.querySelectorAll('.md-sim-image, .immune-sim-image'));
+            const currentSrc = modalImg.src;
+            let currentIndex = allImages.findIndex(img => img.src === currentSrc);
+
+            let newIndex;
+            if (direction === 'next') {
+                newIndex = (currentIndex + 1) % allImages.length;
+            } else {
+                newIndex = (currentIndex - 1 + allImages.length) % allImages.length;
+            }
+
+            const newImage = allImages[newIndex];
+            modalImg.src = newImage.src;
+            modalTitle.textContent = newImage.alt;
+            
+            // Re-run the description logic for the new image
+            const captionElement = newImage.nextElementSibling;
+            if (captionElement && captionElement.classList.contains('figure-caption')) {
+                const captionText = captionElement.textContent;
+                let detailedDescription = "";
+
+                if (newImage.alt.includes("Multiple sequence alignment")) {
+                    detailedDescription = `<strong>Multiple Sequence Alignment (MSA):</strong> This figure displays the alignment of amino acid sequences from the selected proteins using CLUSTAL 0(1.2.4). Asterisks indicate identical residues, showing high conservation crucial for selecting effective epitopes that are common across different strains.`;
+                } else if (newImage.alt.includes("Phylogram")) {
+                    detailedDescription = `<strong>Phylogenetic Tree:</strong> The phylogram visualizes the evolutionary relationships between the protein sequences used for vaccine design. It helps confirm the genetic diversity and relatedness, ensuring selected epitopes are broadly applicable.`;
+                } else if (newImage.alt.includes("Schematic of the final multi-epitope vaccine construct")) {
+                    detailedDescription = `<strong>Vaccine Construct Schematic:</strong> This diagram illustrates the arrangement of different components in the multi-epitope vaccine. It shows the adjuvant at the N-terminus, followed by CTL and HTL epitopes connected by specific linkers (EAAAK, AAY, GPGPG).`;
+                } else if (newImage.alt.includes("Solubility score")) {
+                    detailedDescription = `<strong>Solubility Prediction:</strong> This score, predicted by SOLUprot, indicates the likelihood of the vaccine construct being soluble in <i>E. coli</i>. A score of 0.884 suggests good solubility, which is vital for efficient expression and purification in a recombinant system.`;
+                } else if (newImage.alt.includes("tertiary structure") && newImage.alt.includes("Ramachandran plot")) {
+                    detailedDescription = `<strong>3D Structure and Ramachandran Plot:</strong> The image on the right shows the predicted 3D structure of the vaccine. The Ramachandran plot on the left validates its stereochemical quality: 94.16% of residues in favored regions indicates a well-folded, stable protein, crucial for correct epitope presentation.`;
+                } else if (newImage.alt.includes("Secondary structure prediction of the Vaccine construct by PSI-PRED.")) {
+                    detailedDescription = `<strong>Secondary Structure Prediction:</strong> This image from PSIPRED shows the predicted secondary structure elements of the vaccine construct, including alpha helices, beta strands, and coils. This prediction helps understand the protein's overall folding and stability.`;
+                } else if (newImage.alt.includes("Secondary structure prediction cartoonic representation of the Vaccine construct by PSI-PRED.")) {
+                    detailedDescription = `<strong>Cartoon Representation of Secondary Structure:</strong> This provides a visual interpretation of the PSIPRED secondary structure prediction, showing the arrangement of helices, strands, and loops, which contributes to the overall stability and function of the vaccine protein.`;
+                } else if (newImage.alt.includes("Molecular docking complex of MEV with TLR-4")) {
+                    detailedDescription = `<strong>Molecular Docking: MEV with TLR4:</strong> This visualization (Chimera) shows the binding interaction between the multi-epitope vaccine (MEV) and Toll-like receptor 4 (TLR4). Strong binding to TLR4 is important for initiating an effective innate immune response.`;
+                } else if (newImage.alt.includes("Molecular docking complex of MEV with MHC-I")) {
+                    detailedDescription = `<strong>Molecular Docking: MEV with MHC-I:</strong> This image depicts the interaction between the MEV and Major Histocompatibility Complex Class I (MHC-I). Effective binding here is crucial for the presentation of cytotoxic T lymphocyte (CTL) epitopes and activation of CD8+ T cells.`;
+                } else if (newImage.alt.includes("Molecular docking complex of MEV with MHC-II")) {
+                    detailedDescription = `<strong>Molecular Docking: MEV with MHC-II:</strong> This visual represents the interaction between the MEV and Major Histocompatibility Complex Class II (MHC-II). Strong binding ensures efficient presentation of helper T lymphocyte (HTL) epitopes and activation of CD4+ T cells.`;
+                } else if (newImage.alt.includes("Protein-protein interaction map for MEV with TLR4 from PDBsum")) {
+                    detailedDescription = `<strong>Protein-Protein Interaction: MEV-TLR4:</strong> This map from PDBsum details the specific residue-level interactions (non-bonded contacts, hydrogen bonds, salt bridges) between the vaccine and TLR4, validating the strong binding observed in docking simulations.`;
+                } else if (newImage.alt.includes("Protein-protein interaction between MEV and MHC-1 from PDBsum")) {
+                    detailedDescription = `<strong>Protein-Protein Interaction: MEV-MHC-I:</strong> This PDBsum map shows the intricate network of interactions between the vaccine's epitopes and MHC-I, confirming the molecular basis for effective antigen presentation to CD8+ T cells.`;
+                } else if (newImage.alt.includes("Protein-protein interaction between MEV and MHC-2 from PDBsum")) {
+                    detailedDescription = `<strong>Protein-Protein Interaction: MEV-MHC-II:</strong> This map from PDBsum illustrates the specific binding residues and interaction types between the vaccine and MHC-II, demonstrating the molecular fit for stimulating CD4+ T cells.`;
+                } else if (newImage.alt.includes("Predicted immune response from the C-ImmSim server (Antibody titers and Cytokine production).")) {
+                    detailedDescription = `<strong>Immune Simulation: Antibody and Cytokine Production:</strong> This chart from C-ImmSim predicts the overall antibody titers (IgG1+IgM, IgG+IgM) and the dynamics of key cytokine production (IFN-γ, IL-23, IL-10, IFN-$\beta$) over time, indicating a robust and balanced humoral and cellular immune response.`;
+                } else if (newImage.alt.includes("Immune simulation of vaccine construct by C-ImmSimm (Various Immune Cell Populations).")) {
+                    detailedDescription = `<strong>Immune Simulation: Immune Cell Populations:</strong> This graph shows the predicted changes in various immune cell populations (B cells, helper T cells, cytotoxic T cells, dendritic cells, macrophages) over time after vaccination, highlighting the activation and proliferation of critical immune components.`;
+                } else if (newImage.alt.includes("Forward and reverse primers attached to the reverse translated vaccine construct by SnapGene (Codon Optimization Map).")) {
+                    detailedDescription = `<strong>Codon Optimization Map and Primers:</strong> This visualization from SnapGene shows the codon-optimized nucleotide sequence of the vaccine construct, including the forward and reverse primers. Optimization ensures high expression efficiency in <i>E. coli</i>.`;
+                } else if (newImage.alt.includes("Recombinant plasmid map showing the optimized vaccine gene cloned into the pET28a(+) vector.")) {
+                    detailedDescription = `<strong>Recombinant Plasmid Map:</strong> This diagram shows the pET28a(+) expression vector with the codon-optimized vaccine gene successfully cloned into it. This map guides experimental cloning and protein expression in <i>E. coli</i>.`;
+                } else {
+                    detailedDescription = captionText;
+                }
+                modalDescription.innerHTML = detailedDescription;
+            } else {
+                modalDescription.textContent = "No detailed description available for this image.";
+            }
+        }
+
+        // --- Codon Optimization Copy DNA Button ---
+        const copyDnaBtn = document.getElementById('copy-dna-btn');
+        const copyDnaTooltip = document.getElementById('copy-dna-tooltip');
+        if (copyDnaBtn) { // Check if the button exists before adding listener
+            copyDnaBtn.addEventListener('click', function () {
+                const dnaSequence = document.getElementById('dna-sequence').innerText;
+                const textarea = document.createElement('textarea');
+                textarea.value = dnaSequence;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+
+                copyDnaTooltip.style.opacity = '1';
+                setTimeout(() => {
+                    copyDnaTooltip.style.opacity = '0';
+                }, 2000);
+            });
+        }
     </script>
 </body>
 </html>
