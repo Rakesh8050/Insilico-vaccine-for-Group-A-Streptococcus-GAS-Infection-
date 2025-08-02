@@ -11,7 +11,19 @@ This repository details the complete in silico research pipeline for designing, 
 
 The full, interactive research paper is published online.
 
-**[View the Live Paper Here](https://rakesh8050.github.io/Insilico-vaccine-for-Group-A-Streptococcus-GAS-Infection-/)** 
+**[Live Research Paper](https://rakesh8050.github.io/Insilico-vaccine-for-Group-A-Streptococcus-GAS-Infection-/)** 
+
+-----
+
+# Interactive Report: In Silico Vaccine Design for Group A Streptococcus
+
+This is a single-page interactive web application that serves as a concise, explorable version of a scientific report. Instead of a traditional document, this project transforms a complex research paper on the *in silico* design of a multi-epitope vaccine for Group A Streptococcus (GAS) into a dynamic and accessible experience.
+
+The application allows you to explore key data visualizations, such as the vaccine's molecular blueprint, a sortable table of selected epitopes, and an interactive simulation of its immune response. This format is designed for a quick and engaging overview of the research findings.
+
+You can view the live demo here:
+
+**[Interactive Report](https://rakesh8050.github.io/Insilico-vaccine-for-Group-A-Streptococcus-GAS-Infection-/vaccine-explorer.html)**
 
 -----
 
