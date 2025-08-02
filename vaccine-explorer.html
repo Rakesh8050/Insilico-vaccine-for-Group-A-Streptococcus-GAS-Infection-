@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Report: In Silico Vaccine Design for GAS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Scientific Blue and Neutral Grays -->
+    <!-- Application Structure Plan: A thematic, single-page dashboard structure was chosen over a linear report format to enhance user engagement and data exploration. The flow is designed to mirror a logical discovery process: 1. Introduction (The 'Why'), 2. Vaccine Blueprint (The 'What'), 3. Key Characteristics (The 'How'), 4. Simulated Performance (The 'Results'), and 5. Conclusion (The 'Future'). This structure allows users to either follow the narrative or jump directly to a topic of interest via a sticky navigation bar, making complex information digestible and accessible. Key interactions include hover-to-reveal details on the vaccine construct, filterable data tables for epitopes, and interactive charts for immune simulation, which empower the user to actively query the data rather than passively read it. -->
+    <!-- Visualization & Content Choices: Report Info -> Goal -> Viz/Method -> Interaction -> Justification. 1. Vaccine Construct -> Organize/Inform -> HTML/CSS Diagram -> Hover for details -> Provides an intuitive, high-level overview of the vaccine's components. 2. Epitope Data -> Compare/Organize -> Interactive HTML Table -> Click to sort -> Allows for easy comparison of key epitope properties like antigenicity. 3. Physicochemical Properties -> Inform/Compare -> Bar Chart (Chart.js) -> Hover for exact values -> Quantifies the vaccine's stability and suitability in a clear, visual format. 4. Immune Simulation Data -> Change/Compare -> Line Chart (Chart.js) -> Toggle datasets -> Shows the dynamic nature of the immune response over time and allows user-driven exploration of specific metrics (e.g., comparing IgG vs IgM). 5. Docking Interactions -> Compare -> Bar Chart (Chart.js) -> Hover for counts -> Clearly compares the binding strength to different immune receptors. This multi-faceted approach uses the best tool for each data type to build a comprehensive and interactive narrative. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        h1, h2, h3 {
+            font-family: 'Roboto Slab', serif;
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #3b82f6; /* blue-500 */
+            transition: width 0.3s;
+        }
+        .nav-link.active, .nav-link:hover {
+            color: #3b82f6; /* blue-500 */
+        }
+        .nav-link.active::after, .nav-link:hover::after {
+            width: 100%;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 50vh;
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+        .stat-card {
+            background-color: white;
+            border: 1px solid #e2e8f0; /* slate-200 */
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg shadow-md">
+        <nav class="container mx-auto px-4 lg:px-6 py-3">
+            <div class="flex justify-between items-center">
+                <h1 class="text-xl font-bold text-slate-800">GAS Vaccine Explorer</h1>
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8 text-sm font-medium text-slate-600">
+                    <a href="#overview" class="nav-link active">Overview</a>
+                    <a href="#blueprint" class="nav-link">Blueprint</a>
+                    <a href="#analysis" class="nav-link">Analysis</a>
+                    <a href="#simulation" class="nav-link">Simulation</a>
+                    <a href="#conclusion" class="nav-link">Conclusion</a>
+                </div>
+                <div class="md:hidden">
+                    <select id="mobile-nav" class="w-full p-2 border rounded-md bg-gray-50 text-sm">
+                        <option value="#overview">Overview</option>
+                        <option value="#blueprint">Blueprint</option>
+                        <option value="#analysis">Analysis</option>
+                        <option value="#simulation">Simulation</option>
+                        <option value="#conclusion">Conclusion</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 lg:px-6 py-8 md:py-12">
+
+        <!-- Section 1: Overview -->
+        <section id="overview" class="mb-16 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Designing a Multi-Epitope Vaccine for Group A Streptococcus</h2>
+            <p class="max-w-3xl mx-auto text-slate-600 mb-8">
+                This interactive report details the in silico design of a novel vaccine against Group A Streptococcus (GAS), a major global health threat. We used advanced bioinformatics to identify key bacterial components (epitopes), assemble them into a stable vaccine candidate, and simulate its interaction with the human immune system. Explore the data-driven journey from concept to a promising virtual vaccine.
+            </p>
+        </section>
+
+        <!-- Section 2: Vaccine Blueprint -->
+        <section id="blueprint" class="mb-16 scroll-mt-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-800">Vaccine Blueprint</h2>
+                <p class="max-w-2xl mx-auto mt-2 text-slate-600">
+                    The vaccine is a chimeric protein, meticulously constructed from distinct functional parts. It includes an adjuvant to boost the immune response, followed by specific Cytotoxic T-Lymphocyte (CTL) and Helper T-Lymphocyte (HTL) epitopes joined by specialized linkers. Hover over each component to learn its role.
+                </p>
+            </div>
+            <div id="vaccine-construct" class="w-full overflow-x-auto p-4 bg-white rounded-lg shadow-lg border border-slate-200">
+                <div class="flex items-center space-x-1 min-w-max">
+                    <!-- Adjuvant -->
+                    <div class="vaccine-part group relative flex items-center justify-center h-16 bg-slate-500 text-white font-semibold rounded-l-lg px-4" data-info="Adjuvant (50S Ribosomal Protein): Acts as a powerful stimulant to the immune system, enhancing the overall vaccine effectiveness.">
+                        <span>Adjuvant</span>
+                    </div>
+                    <!-- Linker -->
+                    <div class="vaccine-part group relative flex items-center justify-center h-16 bg-slate-400 text-white font-mono text-sm w-12" data-info="EAAAK Linker: A rigid linker that connects the adjuvant to the first set of epitopes, ensuring proper folding and presentation.">
+                        <span>EAAAK</span>
+                    </div>
+                    <!-- CTL Epitopes -->
+                    <div class="vaccine-part group relative flex items-center justify-center h-16 bg-sky-500 text-white font-semibold px-4" data-info="CTL Epitopes: A series of 13 epitopes (like ESRLSEAQK, ETPSPSTPA) designed to activate Cytotoxic T-Cells, which are crucial for destroying infected cells. They are joined by AAY linkers.">
+                        <span>CTL Epitopes (x13)</span>
+                    </div>
+                     <!-- Linker -->
+                    <div class="vaccine-part group relative flex items-center justify-center h-16 bg-slate-400 text-white font-mono text-sm w-12" data-info="GPGPG Linker: A flexible linker that separates CTL and HTL epitope blocks, allowing independent processing by the immune system.">
+                        <span>GPGPG</span>
+                    </div>
+                    <!-- HTL Epitopes -->
+                    <div class="vaccine-part group relative flex items-center justify-center h-16 bg-blue-500 text-white font-semibold rounded-r-lg px-4" data-info="HTL Epitopes: A series of 12 epitopes (like AAPSQPAESEESSVA) designed to activate Helper T-Cells, which orchestrate the overall immune response, including antibody production. They are joined by GPGPG linkers.">
+                        <span>HTL Epitopes (x12)</span>
+                    </div>
+                </div>
+            </div>
+            <div id="vaccine-tooltip" class="hidden absolute z-10 p-2 text-sm text-white bg-slate-800 rounded-md shadow-lg"></div>
+        </section>
+
+        <!-- Section 3: Analysis -->
+        <section id="analysis" class="mb-16 scroll-mt-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-800">Candidate Analysis</h2>
+                <p class="max-w-2xl mx-auto mt-2 text-slate-600">
+                    A viable vaccine must be stable, soluble, and interact effectively with immune cells. We analyzed the construct's physicochemical properties and its binding affinity to key human immune receptors.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="stat-card">
+                    <div class="text-4xl font-bold text-blue-500">31.72</div>
+                    <div class="text-sm font-semibold text-slate-600 mt-2">Instability Index</div>
+                    <p class="text-xs text-slate-500 mt-1">Value < 40 indicates the protein is predicted to be stable.</p>
+                </div>
+                <div class="stat-card">
+                    <div class="text-4xl font-bold text-blue-500">61.6</div>
+                    <div class="text-sm font-semibold text-slate-600 mt-2">Molecular Weight (kDa)</div>
+                    <p class="text-xs text-slate-500 mt-1">Indicates the size of the protein construct.</p>
+                </div>
+                <div class="stat-card">
+                    <div class="text-4xl font-bold text-blue-500">0.884</div>
+                    <div class="text-sm font-semibold text-slate-600 mt-2">Solubility Score</div>
+                    <p class="text-xs text-slate-500 mt-1">Score > 0.5 suggests good solubility upon expression.</p>
+                </div>
+                <div class="stat-card">
+                    <div class="text-4xl font-bold text-blue-500">94.16%</div>
+                    <div class="text-sm font-semibold text-slate-600 mt-2">Ramachandran Favored</div>
+                    <p class="text-xs text-slate-500 mt-1">High percentage indicates a high-quality, valid 3D structure.</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg border border-slate-200">
+                    <h3 class="text-xl font-bold text-slate-800 mb-4 text-center">Epitope Selection</h3>
+                    <p class="text-sm text-slate-600 mb-4 text-center">Only the most promising epitopes were selected based on antigenicity, non-toxicity, and their ability to trigger a key immune signal (IFN-γ). Click headers to sort.</p>
+                    <div class="overflow-x-auto max-h-96">
+                        <table id="epitope-table" class="w-full text-sm text-left">
+                            <thead class="bg-slate-100 sticky top-0">
+                                <tr>
+                                    <th class="p-3 cursor-pointer" data-sort="type">Type ↓</th>
+                                    <th class="p-3 cursor-pointer" data-sort="sequence">Sequence</th>
+                                    <th class="p-3 cursor-pointer" data-sort="score">Vaxijen Score</th>
+                                </tr>
+                            </thead>
+                            <tbody id="epitope-table-body">
+                                <!-- JS will populate this -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg border border-slate-200">
+                    <h3 class="text-xl font-bold text-slate-800 mb-4 text-center">Immune Receptor Docking</h3>
+                     <p class="text-sm text-slate-600 mb-4 text-center">Molecular docking simulates how well the vaccine binds to immune receptors. More interactions (especially H-bonds) suggest stronger binding and a better immune response.</p>
+                    <div class="chart-container h-96 max-h-[400px]">
+                        <canvas id="dockingChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Immune Simulation -->
+        <section id="simulation" class="mb-16 scroll-mt-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-800">Simulated Immune Response</h2>
+                <p class="max-w-2xl mx-auto mt-2 text-slate-600">
+                    Using the C-ImmSim server, we simulated an *in vivo* immune response to three injections of the vaccine (at day 0, 14, and 28). The charts below predict the production of antibodies and key immune signaling molecules (cytokines).
+                </p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg border border-slate-200">
+                <div class="flex flex-wrap justify-center gap-2 mb-4">
+                    <button class="sim-toggle-btn active" data-chart="antibodies">Antibodies</button>
+                    <button class="sim-toggle-btn" data-chart="cytokines">Cytokines</button>
+                    <button class="sim-toggle-btn" data-chart="cells">Immune Cells</button>
+                </div>
+                <div class="chart-container">
+                    <canvas id="simulationChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Conclusion -->
+        <section id="conclusion" class="scroll-mt-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-800">Conclusion & Future Work</h2>
+                 <p class="max-w-2xl mx-auto mt-2 text-slate-600">
+                    The comprehensive *in silico* analysis indicates that the designed multi-epitope vaccine is a highly promising candidate against Group A Streptococcus.
+                </p>
+            </div>
+            <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg border border-slate-200">
+                <p class="text-slate-600 mb-4">The vaccine construct demonstrates strong potential due to its predicted stability, high antigenicity, and robust binding to key immune receptors. Immune simulations forecast a strong, multi-faceted immune response, crucial for clearing GAS infections and establishing long-term memory.</p>
+                <h3 class="font-bold text-slate-700 mt-6 mb-2">Next Steps:</h3>
+                <ul class="list-disc list-inside space-y-2 text-slate-600">
+                    <li>**Wet Lab Validation:** The most critical next step is to synthesize the protein and validate its expression and immunogenicity *in vitro*.</li>
+                    <li>**Animal Model Studies:** If *in vitro* results are positive, the vaccine's safety and efficacy must be tested in animal models against a live GAS challenge.</li>
+                    <li>**Population Coverage Analysis:** Further computational work can be done to ensure the selected epitopes provide coverage across diverse human populations with different genetic backgrounds.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const epitopeData = [
+                { type: 'MHC-I', sequence: 'ESRLSEAQK', score: 0.7860 },
+                { type: 'MHC-I', sequence: 'ETPSPSTPA', score: 0.7126 },
+                { type: 'MHC-I', sequence: 'GEKAQPLFI', score: 0.8372 },
+                { type: 'MHC-I', sequence: 'TQASASDSM', score: 1.0687 },
+                { type: 'MHC-I', sequence: 'LSRQVRAHE', score: 0.6496 },
+                { type: 'MHC-I', sequence: 'ELAKLRAGK', score: 1.0145 },
+                { type: 'MHC-I', sequence: 'TGTASVAVAL', score: 1.2002 },
+                { type: 'MHC-II', sequence: 'AAPSQPAESEESSVA', score: 0.9727 },
+                { type: 'MHC-II', sequence: 'ESEEPSVAASSEETP', score: 1.0163 },
+                { type: 'MHC-II', sequence: 'ESRLSEAQKETYKQK', score: 1.1374 },
+                { type: 'MHC-II', sequence: 'EGAMNFSTADSAKIK', score: 1.0145 },
+                { type: 'MHC-II', sequence: 'GAMNFSTADSAKIKT', score: 0.9708 },
+                { type: 'MHC-II', sequence: 'RADKFEIENNTLKLK', score: 1.4410 },
+            ];
+
+            let sortDirection = {};
+
+            const epitopeTableBody = document.getElementById('epitope-table-body');
+            const renderTable = (data) => {
+                epitopeTableBody.innerHTML = data.map(e => `
+                    <tr class="border-b border-slate-200 hover:bg-slate-50">
+                        <td class="p-3">${e.type}</td>
+                        <td class="p-3 font-mono text-xs">${e.sequence}</td>
+                        <td class="p-3">${e.score.toFixed(4)}</td>
+                    </tr>
+                `).join('');
+            };
+
+            document.querySelectorAll('#epitope-table th').forEach(header => {
+                header.addEventListener('click', () => {
+                    const sortKey = header.dataset.sort;
+                    const direction = (sortDirection[sortKey] || 'asc') === 'asc' ? 'desc' : 'asc';
+                    sortDirection = { [sortKey]: direction };
+                    
+                    document.querySelectorAll('#epitope-table th').forEach(h => h.textContent = h.textContent.replace(' ↓','').replace(' ↑',''));
+                    header.textContent += direction === 'asc' ? ' ↑' : ' ↓';
+
+                    const sortedData = [...epitopeData].sort((a, b) => {
+                        if (a[sortKey] < b[sortKey]) return direction === 'asc' ? -1 : 1;
+                        if (a[sortKey] > b[sortKey]) return direction === 'asc' ? 1 : -1;
+                        return 0;
+                    });
+                    renderTable(sortedData);
+                });
+            });
+
+            renderTable(epitopeData);
+
+            const dockingCtx = document.getElementById('dockingChart').getContext('2d');
+            new Chart(dockingCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['TLR4', 'MHC-I', 'MHC-II'],
+                    datasets: [{
+                        label: 'Hydrogen Bonds',
+                        data: [15, 12, 15],
+                        backgroundColor: 'rgba(59, 130, 246, 0.7)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        borderWidth: 1
+                    }, {
+                        label: 'Non-bonded Contacts',
+                        data: [267, 245, 267],
+                        backgroundColor: 'rgba(14, 165, 233, 0.7)',
+                        borderColor: 'rgba(14, 165, 233, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { y: { beginAtZero: true } },
+                    plugins: {
+                        title: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            const simulationData = {
+                days: Array.from({length: 36}, (_, i) => i),
+                antibodies: {
+                    labels: ['IgG+IgM', 'IgG1+IgM'],
+                    datasets: [
+                        { label: 'IgG+IgM', data: [0,0,1000,5000,15000,20000,22000,23000,24000,25000,26000,27000,28000,29000,30000,50000,55000,58000,60000,62000,63000,64000,65000,66000,67000,68000,69000,70000,71000,75000,78000,80000,82000,83000,84000,85000], borderColor: '#3b82f6', tension: 0.1, fill: false },
+                        { label: 'IgG1+IgM', data: [0,0,500,2000,8000,10000,11000,12000,13000,14000,15000,16000,17000,18000,20000,40000,42000,44000,45000,46000,47000,48000,49000,50000,51000,52000,53000,54000,55000,60000,62000,63000,64000,65000,66000,67000], borderColor: '#60a5fa', tension: 0.1, fill: false },
+                    ]
+                },
+                cytokines: {
+                    labels: ['IFN-γ', 'IL-10', 'IL-23'],
+                     datasets: [
+                        { label: 'IFN-γ', data: [0,1000,50000,150000,250000,350000,400000,420000,430000,435000,440000,442000,443000,444000,445000,450000,440000,430000,420000,410000,400000,415000,420000,425000,430000,450000,460000,470000,480000,490000,480000,470000,460000,450000,440000,430000], borderColor: '#ef4444', tension: 0.1, fill: false },
+                        { label: 'IL-10', data: [0,500,10000,40000,60000,70000,75000,78000,80000,81000,80000,79000,78000,77000,50000,70000,65000,60000,55000,50000,45000,40000,35000,30000,25000,35000,40000,45000,50000,55000,50000,45000,40000,35000,30000,25000], borderColor: '#f97316', tension: 0.1, fill: false },
+                        { label: 'IL-23', data: [0,200,5000,20000,30000,35000,38000,40000,41000,40000,39000,38000,37000,36000,25000,30000,28000,26000,24000,22000,20000,18000,16000,14000,12000,15000,18000,20000,22000,24000,22000,20000,18000,16000,14000,12000], borderColor: '#84cc16', tension: 0.1, fill: false },
+                    ]
+                },
+                cells: {
+                    labels: ['Helper T Cells', 'Cytotoxic T Cells', 'Active B Cells'],
+                     datasets: [
+                        { label: 'Helper T Cells', data: [5000,5000,5500,7000,9000,11000,12000,12500,12800,13000,13100,13200,13300,13400,13500,14000,14100,14200,14300,14400,14500,14600,14700,14800,14900,15000,15100,15200,15300,15400,15500,15600,15700,15800,15900,16000], borderColor: '#10b981', tension: 0.1, fill: false },
+                        { label: 'Cytotoxic T Cells', data: [8000,8000,8200,9000,10000,11000,11500,11800,12000,12100,12200,12300,12400,12500,12600,13000,13100,13200,13300,13400,13500,13600,13700,13800,13900,14000,14100,14200,14300,14400,14500,14600,14700,14800,14900,15000], borderColor: '#6366f1', tension: 0.1, fill: false },
+                        { label: 'Active B Cells', data: [400,400,600,1000,2000,3000,4000,4500,4800,5000,5100,5200,5300,5400,5500,6000,6100,6200,6300,6400,6500,6600,6700,6800,6900,7000,7100,7200,7300,7400,7500,7600,7700,7800,7900,8000], borderColor: '#a855f7', tension: 0.1, fill: false },
+                    ]
+                }
+            };
+
+            const simCtx = document.getElementById('simulationChart').getContext('2d');
+            let simulationChart = new Chart(simCtx, {
+                type: 'line',
+                data: {
+                    labels: simulationData.days,
+                    datasets: simulationData.antibodies.datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { y: { beginAtZero: true, title: { display: true, text: 'Concentration / Count' } }, x: { title: { display: true, text: 'Days' } } },
+                    plugins: { title: { display: true, text: 'Simulated Antibody Response' } }
+                }
+            });
+
+            document.querySelectorAll('.sim-toggle-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.sim-toggle-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    const chartType = btn.dataset.chart;
+                    simulationChart.data.datasets = simulationData[chartType].datasets;
+                    simulationChart.options.plugins.title.text = `Simulated ${chartType.charAt(0).toUpperCase() + chartType.slice(1)} Response`;
+                    simulationChart.update();
+                });
+            });
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 65) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+            
+            document.getElementById('mobile-nav').addEventListener('change', function() {
+                window.location.hash = this.value;
+            });
+
+            const construct = document.getElementById('vaccine-construct');
+            const tooltip = document.getElementById('vaccine-tooltip');
+            construct.addEventListener('mouseover', e => {
+                if (e.target.classList.contains('vaccine-part')) {
+                    const info = e.target.dataset.info;
+                    tooltip.textContent = info;
+                    tooltip.classList.remove('hidden');
+                    const rect = e.target.getBoundingClientRect();
+                    tooltip.style.left = `${rect.left + window.scrollX}px`;
+                    tooltip.style.top = `${rect.bottom + window.scrollY + 5}px`;
+                }
+            });
+            construct.addEventListener('mouseout', () => {
+                tooltip.classList.add('hidden');
+            });
+
+        });
+    </script>
+</body>
+</html>
