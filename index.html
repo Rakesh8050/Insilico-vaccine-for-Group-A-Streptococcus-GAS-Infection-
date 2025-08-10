@@ -384,5 +384,70 @@
         });
     </script>
     <script src="/js/scripts.js" defer></script>
+    <footer>
+        <p>&copy; 2025 Rakesh Kumar A</p>
+        <div class="footer-links">
+            <a href="mailto:1rakeshkumar098@gmail.com">1rakeshkumar098@gmail.com</a><span class="footer-separator"> | </span>
+            <a href="tel:+919113274413">+91 91132 74413</a><span class="footer-separator"> | </span>
+            <a href="https://github.com/Rakesh8050" target="_blank">GitHub Profile</a>
+        </div>
+    </footer>
+    
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('.nav-links a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(this.getAttribute('href'));
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Section visibility animation on scroll
+            const sections = document.querySelectorAll('section');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Lightbox functionality
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const galleryImages = document.querySelectorAll('.results-gallery img');
+            
+            galleryImages.forEach(img => {
+                img.addEventListener('click', () => {
+                    lightbox.style.display = 'flex';
+                    lightboxImg.src = img.src;
+                });
+            });
+            
+            document.querySelector('.lightbox-close').addEventListener('click', () => {
+                lightbox.style.display = 'none';
+            });
+            
+            lightbox.addEventListener('click', (e) => {
+                if (e.target !== lightboxImg) {
+                    lightbox.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
